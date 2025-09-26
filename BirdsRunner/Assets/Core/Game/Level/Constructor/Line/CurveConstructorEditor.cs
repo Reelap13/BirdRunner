@@ -15,7 +15,7 @@ namespace Game.Level.Constructor.Curve
             CurveConstructor gen = (CurveConstructor)target;
             if (GUILayout.Button("Generate Spline"))
             {
-                gen.GenerateLine();
+                gen.Generate();
             }
         }
     }

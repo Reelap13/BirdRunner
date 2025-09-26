@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Level.Constructor.Tube
 {
-    [CreateAssetMenu(fileName = "Tube", menuName = "Game/LevelConstructor/Tube")]
+    [CreateAssetMenu(fileName = "Tube", menuName = "Game/Level/Constructor/Tube")]
     public class TubePreset : ScriptableObject
     {
         public float SegmentLength = 0.5f;

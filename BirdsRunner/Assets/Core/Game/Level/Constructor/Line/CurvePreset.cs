@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Level.Constructor.Curve
 {
-    [CreateAssetMenu(fileName = "Curve", menuName = "Game/LevelConstructor/Curve")]
+    [CreateAssetMenu(fileName = "Curve", menuName = "Game/Level/Constructor/Curve")]
     public class CurvePreset : ScriptableObject
     {
         public float Length = 1;

@@ -10,7 +10,7 @@ namespace Game.Level.Constructor.Curve
         [SerializeField] private CurveFunction _function;
         [SerializeField] private SplineContainer _container;
 
-        public void GenerateLine()
+        public void Generate()
         {
             float step_length = _preset.Length / (_preset.Steps - 1);
 
