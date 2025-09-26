@@ -1,9 +1,8 @@
 #if UNITY_EDITOR
-using Game.Level.Constructor.Line;
 using UnityEditor;
 using UnityEngine;
 
-namespace Game.Level.Constructor.Line
+namespace Game.Level.Constructor.Curve
 {
 
     [CustomEditor(typeof(CurveConstructor))]

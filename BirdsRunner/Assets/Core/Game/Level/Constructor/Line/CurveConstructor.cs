@@ -2,7 +2,7 @@ using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Splines;
 
-namespace Game.Level.Constructor.Line
+namespace Game.Level.Constructor.Curve
 {
     public class CurveConstructor : MonoBehaviour
     {

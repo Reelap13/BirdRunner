@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Level.Constructor.Line
+namespace Game.Level.Constructor.Curve
 {
     [CreateAssetMenu(fileName = "Curve", menuName = "Game/LevelConstructor/Curve")]
     public class CurvePreset : ScriptableObject
