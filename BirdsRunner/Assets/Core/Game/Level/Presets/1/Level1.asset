@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb438b2bc0fe08f45b88846e6a1b6dd5, type: 3}
-  m_Name: CubeObstacle
+  m_Script: {fileID: 11500000, guid: aa209c7102fd48a469bf0f356e7fd4ce, type: 3}
+  m_Name: Level1
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 7517378947470992897, guid: 0331b81c5ac44f942b94763c6f8de377, type: 3}
+  LevelId: 0
+  Prefab: {fileID: 3232376013586540391, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}

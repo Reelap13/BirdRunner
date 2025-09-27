@@ -15,7 +15,7 @@ namespace Game.Level.Constructor
             LevelConstructor gen = (LevelConstructor)target;
             if (GUILayout.Button("Generate Level"))
             {
-                gen.GenerateLevel();
+                gen.GenerateLevelInTheEditor();
             }
         }
     }

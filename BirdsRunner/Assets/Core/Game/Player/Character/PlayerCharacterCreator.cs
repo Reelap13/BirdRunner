@@ -1,50 +1,34 @@
+using System;
 using Mirror;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.PlayerSide.Character
 {
     public class PlayerCharacterCreator : NetworkBehaviour
     {
+        [NonSerialized] public UnityEvent<PlayerCharacterController> OnCharacterCreated = new();
+
         [field: SerializeField]
         public PlayerController Controller { get; private set; }
         [SerializeField] private PlayerCharacterController _character_prefab;
 
         private PlayerCharacterController _character;
 
-        public override void OnStartServer()
+        public void CreateCharacter(Point point)
         {
-            GameController.Instance.OnNewGameStarted.AddListener(SetupOnGameStarting);    
-            SavesController.Instance.OnLoadingStarted.AddListener(Load);    
-            GameController.Instance.OnNewGameStarted.AddListener(Save);    
-        }
+            DestroyCharacter();
 
-        private void SetupOnGameStarting()
-        {
-            CreatePlayerCharacter();
-        }
-
-        private void Load()
-        {
-
-        }
-
-        private void Save()
-        {
-
-        }
-
-        private void CreatePlayerCharacter()
-        {
-            if (_character != null)
-                DestroyPlayerCharacter();
-
-            _character = NetworkUtils.NetworkInstantiate(_character_prefab);
+            _character = NetworkUtils.NetworkInstantiate(_character_prefab, point.Position, point.Rotation);
             Controller.Player.AddNetworkObject(_character.netIdentity);
             _character.Initialize(Controller);
+            OnCharacterCreated.Invoke(_character);
         }
 
-        private void DestroyPlayerCharacter()
+        public void DestroyCharacter()
         {
+            if (_character == null) return;
+            
             Controller.Player.RemoveNetworkObjectFromList(_character.netIdentity);
             NetworkServer.Destroy(_character.gameObject);
             _character = null;

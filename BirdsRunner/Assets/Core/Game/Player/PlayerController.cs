@@ -1,5 +1,6 @@
 using System;
 using Game.PlayerSide.Character;
+using Game.PlayerSide.Health;
 using Mirror;
 using Server.Data;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace Game.PlayerSide
 
         [field: SerializeField]
         public PlayerCharacterCreator CharacterCreator { get; private set; }
+        [field: SerializeField]
+        public PlayerHealth Health { get; private set; }
 
         public Player Player { get; private set; }
         public Guid UniqueId => Player.ClientId;

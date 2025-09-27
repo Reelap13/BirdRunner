@@ -1,7 +1,12 @@
 using System.Collections.Generic;
+using Game.Level.Obstacles;
+using Mirror;
 using Unity.Mathematics;
+using Unity.Multiplayer.Center.Common;
 using UnityEngine;
 using UnityEngine.Splines;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 namespace Game.Level.Constructor.Obstacles
 {
@@ -12,20 +17,25 @@ namespace Game.Level.Constructor.Obstacles
 
         private List<GameObject> _spawned = new List<GameObject>();
 
-        public void Generate()
+        public void Generate(bool is_editor = false)
         {
-            DestroySpawnedObjects();
-            CreateObstacles();
+            DestroySpawnedObjects(is_editor);
+            CreateObstacles(is_editor);
         }
 
-        private void DestroySpawnedObjects()
+        private void DestroySpawnedObjects(bool is_editor)
         {
-            foreach (var obstacle in _spawned)
-                DestroyImmediate(obstacle);
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                var child = transform.GetChild(i).gameObject;
+                if (is_editor)                
+                    DestroyImmediate(child);
+                else NetworkServer.Destroy(child);
+            }
             _spawned.Clear();
         }
 
-        private void CreateObstacles()
+        private void CreateObstacles(bool is_editor)
         {
             var spline = _container.Spline;
 
@@ -42,9 +52,17 @@ namespace Game.Level.Constructor.Obstacles
 
                 Quaternion rot = Quaternion.LookRotation(tangent, up);
 
-                var instance = Instantiate(data.Preset.Prefab, pos, rot, transform);
-                _spawned.Add(instance);
+                var obstacle = CreateObstacle(data.Preset, pos, rot, is_editor);
+                _spawned.Add(obstacle);
             }
+        }
+
+        private GameObject CreateObstacle(ObstaclesPreset preset, float3 pos, Quaternion rot, bool is_editor)
+        {
+            GameObject obstacle = null;
+            if (is_editor) obstacle = Instantiate(preset.Prefab, pos, rot, transform);
+            else obstacle = NetworkUtils.NetworkInstantiate(preset.Prefab, pos, rot, transform);
+            return obstacle;
         }
     }
 }

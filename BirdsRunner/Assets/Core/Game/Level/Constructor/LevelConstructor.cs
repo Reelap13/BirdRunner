@@ -2,20 +2,34 @@ using Game.Level.Constructor.Curve;
 using Game.Level.Constructor.Obstacles;
 using Game.Level.Constructor.Tube;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Game.Level.Constructor
 {
     public class LevelConstructor : MonoBehaviour
     {
+        [field: SerializeField]
+        public SplineContainer Container { get; private set; }
+
         [SerializeField] private CurveConstructor _curve;
         [SerializeField] private TubeConstructor _tube;
         [SerializeField] private ObstaclesConstructor _obstacles;
 
-        public void GenerateLevel()
+        public void GenerateLevelInTheEditor()
         {
             _curve.Generate();
             _tube.Generate();
-            _obstacles.Generate();
+            _obstacles.Generate(true);
+        }
+
+        public void GenerateServerLevel()
+        {
+            _obstacles.Generate(false);
+        }
+
+        public void GenerateClientLevel()
+        {
+            _tube.Generate();
         }
     }
 }

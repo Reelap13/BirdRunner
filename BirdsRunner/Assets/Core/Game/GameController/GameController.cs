@@ -1,4 +1,7 @@
 using System;
+using Game.Cutscene;
+using Game.Level;
+using Game.Race;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,19 +9,23 @@ namespace Game
 {
     public class GameController : Singleton<GameController>
     {
-        [NonSerialized] public UnityEvent OnNewGameStarted = new();
+        [NonSerialized] public UnityEvent OnInitialized = new();
+        [NonSerialized] public UnityEvent OnStarted = new();
+        [NonSerialized] public UnityEvent OnRestarted = new();
 
         [field: SerializeField]
-        public SavesController SavesController { get; private set; }
+        public GamePlayersController Players { get; private set; }
+        [field: SerializeField]
+        public LevelLoader Level { get; private set; }
+        [field: SerializeField]
+        public CutsceneController Cutscene { get; private set; }
+        [field: SerializeField]
+        public RaceController Race { get; private set; }
 
-        public void StartGame()
-        {
-            if (SavesController.IsHasSave())
-                SavesController.LoadGame();
-            else OnNewGameStarted.Invoke();
-        }
-
-        public void RestartGame()
+        public void Initialize() => OnInitialized.Invoke();
+        public void StartGame() => OnStarted.Invoke();
+        public void RestartGame() => OnRestarted.Invoke();
+        public void StartNextLevel()
         {
             StartGame();
         }
