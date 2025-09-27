@@ -8,5 +8,7 @@ namespace Game.Level.Constructor.Obstacles
     {
         public ObstaclesPreset Preset;
         public float SpawnDistance;
+        public Vector2 Offset;
+        public float Rotation;
     }
 }

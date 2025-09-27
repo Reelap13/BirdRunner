@@ -16,7 +16,7 @@ namespace Game.Level.Constructor.Obstacles
             ObstaclesConstructor gen = (ObstaclesConstructor)target;
             if (GUILayout.Button("Generate Obstacles"))
             {
-                gen.Generate();
+                gen.Generate(true);
             }
         }
     }
