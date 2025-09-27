@@ -1,6 +1,5 @@
 using System;
 using Game.PlayerSide.Character;
-using Game.PlayerSide.Health;
 using Mirror;
 using Server.Data;
 using UnityEngine;

@@ -3,7 +3,7 @@ using Game.PlayerSide.Character;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.PlayerSide.Health
+namespace Game.PlayerSide
 {
     public class PlayerHealth : MonoBehaviour
     {
@@ -36,9 +36,11 @@ namespace Game.PlayerSide.Health
             if (!IsAlive)
                 return;
 
+            Debug.Log("OnTakeDamage");
             _health -= damage;
             if (!IsAlive)
             {
+                Debug.Log("OnDie");
                 Controller.CharacterCreator.Character.State = CharacterState.DEAD;
                 OnDied.Invoke();
             }

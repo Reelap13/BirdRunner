@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9058605065888364965}
   - component: {fileID: 7699085618414195250}
+  - component: {fileID: 8804576377041567464}
   m_Layer: 0
   m_Name: RaceController
   m_TagString: Untagged
@@ -87,6 +88,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8401b875a3f8c4c4ea83d225001c6c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tracker: {fileID: 8804576377041567464}
+--- !u!114 &8804576377041567464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530718629284408958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d87f3b0d196af46a60e2f4d96ec41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3672488833651660112

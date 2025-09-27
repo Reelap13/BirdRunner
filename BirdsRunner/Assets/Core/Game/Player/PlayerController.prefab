@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Controller>k__BackingField: {fileID: 4946357414854406475}
-  _start_health: 3
+  _start_health: 1
 --- !u!1 &3644195291126731272
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6492747563132455381}
   - component: {fileID: 8120785879924697904}
+  - component: {fileID: 2750545646142137476}
   m_Layer: 0
   m_Name: CharacterCreator
   m_TagString: Untagged
@@ -95,6 +96,22 @@ MonoBehaviour:
   syncInterval: 0
   <Controller>k__BackingField: {fileID: 4946357414854406475}
   _character_prefab: {fileID: 643281548553802529, guid: ba8774c8fc3db194588442306a6a4f39, type: 3}
+--- !u!114 &2750545646142137476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644195291126731272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614df9e051b81e94080259d2c8c5dde6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  <Controller>k__BackingField: {fileID: 4946357414854406475}
 --- !u!1 &5511258989546978311
 GameObject:
   m_ObjectHideFlags: 0
