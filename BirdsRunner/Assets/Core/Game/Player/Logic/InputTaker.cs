@@ -20,12 +20,17 @@ namespace Game.PlayerSide
             if (!(new_side_direction.x == _side_direction.x && new_side_direction.y == _side_direction.y))
             {
                 _side_direction = new_side_direction;
-                CommandUpdateSideDirection(new_side_direction);
+                UpdateSideDirection(new_side_direction);
             }
         }
 
         [Command]
         public void CommandUpdateSideDirection(float2 direction)
+        {
+            Controller.CharacterCreator.Character.Movement.UpdateSideDirection(direction);
+        }
+
+        public void UpdateSideDirection(float2 direction)
         {
             Controller.CharacterCreator.Character.Movement.UpdateSideDirection(direction);
         }

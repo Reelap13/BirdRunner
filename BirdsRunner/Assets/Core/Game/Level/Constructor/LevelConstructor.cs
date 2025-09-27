@@ -1,6 +1,7 @@
 using Game.Level.Constructor.Curve;
 using Game.Level.Constructor.Obstacles;
 using Game.Level.Constructor.Tube;
+using Game.Level.Constructor.Plane;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -14,6 +15,7 @@ namespace Game.Level.Constructor
         [SerializeField] private CurveConstructor _curve;
         [SerializeField] private TubeConstructor _tube;
         [SerializeField] private ObstaclesConstructor _obstacles;
+        [SerializeField] private MovingPlaneConstructor _plane;
 
         public void GenerateLevelInTheEditor()
         {
@@ -25,6 +27,7 @@ namespace Game.Level.Constructor
         public void GenerateServerLevel()
         {
             _obstacles.Generate(false);
+            _plane.Generate();
         }
 
         public void GenerateClientLevel()
