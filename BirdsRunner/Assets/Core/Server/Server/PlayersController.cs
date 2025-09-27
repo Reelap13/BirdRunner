@@ -100,5 +100,7 @@ namespace Server.ServerSide
                     return player;
             return null;
         }
+
+        public List<Player> Players { get { return _players; } }
     }
 }

@@ -14,6 +14,8 @@ namespace Game.PlayerSide
 
         [field: SerializeField]
         public PlayerCharacterCreator CharacterCreator { get; private set; }
+        [field: SerializeField]
+        public PlayerHealth Health { get; private set; }
 
         public Player Player { get; private set; }
         public Guid UniqueId => Player.ClientId;

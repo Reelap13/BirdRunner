@@ -1,7 +1,6 @@
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 using UnityEngine.Splines;
 
 namespace Game.Level.Constructor.Tube

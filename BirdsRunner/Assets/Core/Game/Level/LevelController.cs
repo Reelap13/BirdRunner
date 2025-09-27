@@ -1,17 +1,30 @@
-using System;
-using Unity.VisualScripting;
+using Game.Level.Constructor;
+using Mirror;
+using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Splines;
 
 namespace Game.Level
 {
-    public class LevelController : MonoBehaviour
+    public class LevelController : NetworkBehaviour
     {
-        [NonSerialized] public UnityEvent OnInitialized = new();
+        [SerializeField] private LevelConstructor _constructor;
 
-        public void Initialize()
+        public override void OnStartServer() => _constructor.GenerateServerLevel();
+        public override void OnStartClient() => _constructor.GenerateClientLevel();
+
+        public Point GetStartPoint()
         {
-            OnInitialized.Invoke();
+            var spline = _constructor.Container.Spline;
+            SplineUtility.Evaluate(spline, 0,
+                out float3 pos, out float3 tangent, out float3 up);
+
+            Quaternion rot = Quaternion.LookRotation(tangent, up);
+            return new Point()
+            {
+                Position = pos,
+                Rotation = rot,
+            };
         }
     }
 }
