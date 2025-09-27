@@ -27,7 +27,6 @@ namespace Game.PlayerSide
         [Command]
         public void CommandUpdateSideDirection(float2 direction)
         {
-            Debug.Log(direction);
             Controller.CharacterCreator.Character.Movement.UpdateSideDirection(direction);
         }
     }

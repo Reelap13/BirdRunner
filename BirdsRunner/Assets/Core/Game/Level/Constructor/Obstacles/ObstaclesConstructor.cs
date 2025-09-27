@@ -2,11 +2,8 @@ using System.Collections.Generic;
 using Game.Level.Obstacles;
 using Mirror;
 using Unity.Mathematics;
-using Unity.Multiplayer.Center.Common;
 using UnityEngine;
 using UnityEngine.Splines;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 namespace Game.Level.Constructor.Obstacles
 {
