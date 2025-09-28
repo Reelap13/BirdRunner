@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: c7424c1070fad4ba2a7a96b02fbeb4bb
+AssetOrigin:
+  serializedVersion: 1
+  productId: 129321
+  packageName: Mirror
+  packageVersion: 96.0.1
+  assetPath: Assets/Mirror/Transports/Telepathy/TelepathyTransport.cs
+  uploadId: 736421
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -9,10 +16,3 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 129321
-  packageName: Mirror
-  packageVersion: 96.0.1
-  assetPath: Assets/Mirror/Transports/Telepathy/TelepathyTransport.cs
-  uploadId: 736421

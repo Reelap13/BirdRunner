@@ -13,6 +13,7 @@ namespace Game.PlayerSide
 
         private void Update()
         {
+            if (!isOwned) return;
             float h = InputManager.Instance.GetControls().Player.Move.ReadValue<Vector2>().x;
             float v = InputManager.Instance.GetControls().Player.Move.ReadValue<Vector2>().y;
 
@@ -20,7 +21,7 @@ namespace Game.PlayerSide
             if (!(new_side_direction.x == _side_direction.x && new_side_direction.y == _side_direction.y))
             {
                 _side_direction = new_side_direction;
-                UpdateSideDirection(new_side_direction);
+                CommandUpdateSideDirection(new_side_direction);
             }
         }
 

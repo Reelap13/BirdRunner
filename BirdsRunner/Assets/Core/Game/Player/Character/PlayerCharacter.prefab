@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 581904319227086692}
   - component: {fileID: 1786280291369213182}
   - component: {fileID: 3279447026722735806}
-  - component: {fileID: 785214974655304556}
+  - component: {fileID: 7972912599762345321}
   m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -124,10 +124,12 @@ MonoBehaviour:
   _side_speed: 5
   _rb: {fileID: 3279447026722735806}
   model: {fileID: 3976531177518121635}
+  rotationSpeed: 50
   maxBankAngle: 30
   bankSmoothTime: 0.2
-  maxPitchAngle: 15
+  maxPitchAngle: 30
   pitchSmoothTime: 0.2
+  constraintSmoothingFactor: 1
 --- !u!114 &1786280291369213182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,14 +142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 1
+  syncDirection: 0
   syncMode: 0
   syncInterval: 0
   target: {fileID: 8490938351946488051}
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
-  onlySyncOnChange: 1
+  onlySyncOnChange: 0
   compressRotation: 1
   interpolatePosition: 1
   interpolateRotation: 1
@@ -186,10 +188,10 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &785214974655304556
+--- !u!114 &7972912599762345321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,6 +219,7 @@ GameObject:
   - component: {fileID: 4125691927328949667}
   - component: {fileID: 6386176818853518997}
   - component: {fileID: 4468804056744636610}
+  - component: {fileID: 6729910650661607105}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
@@ -328,3 +331,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Character>k__BackingField: {fileID: 643281548553802529}
+--- !u!114 &6729910650661607105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774377852606636837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 3976531177518121635}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChangeCorrectionMultiplier: 2
+  useFixedUpdate: 0
+  rotationSensitivity: 0.01
+  positionPrecision: 0.01
+  scalePrecision: 0.01

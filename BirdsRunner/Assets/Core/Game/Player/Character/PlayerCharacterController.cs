@@ -24,6 +24,7 @@ namespace Game.PlayerSide.Character
         public override void OnStartAuthority()
         {
             Local = this;
+            State = CharacterState.ALIVE;
         }
 
         // Update to Target method if will be used NetworkTrasform(Client to server)

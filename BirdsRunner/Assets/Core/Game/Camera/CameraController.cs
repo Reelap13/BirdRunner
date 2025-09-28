@@ -1,31 +1,39 @@
 using UnityEngine;
-using Mirror;
 
-public class CameraController : MonoBehaviour
+namespace Game.PlayerCamera
 {
-    public Transform target;
-    public float distance = 10f;
-    public float height = 5f;
-    public float positionDamping = 2f;
-    public float rotationDamping = 1f;
-    public Vector3 lookOffset = Vector3.zero;
-
-    private void LateUpdate()
+    public class CameraController : MonoBehaviour
     {
-        if (!target)
+        [SerializeField] private Transform target;
+        [SerializeField] private float distance = 10f;
+        [SerializeField] private float height = 5f;
+        [SerializeField] private float positionDamping = 2f;
+        [SerializeField] private float rotationDamping = 1f;
+        [SerializeField] private Vector3 lookOffset = Vector3.zero;
+
+
+        public void MoveCamera()
         {
-            Debug.LogWarning("CameraFollow: No target assigned!");
-            return;
+            if (!target)
+            {
+                Debug.LogWarning("CameraFollow: No target assigned!");
+                return;
+            }
+
+            Vector3 desiredPosition = target.position - target.forward * distance + Vector3.up * height;
+
+            desiredPosition += target.rotation * lookOffset;
+
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, positionDamping * Time.deltaTime);
+
+            Quaternion desiredRotation = Quaternion.LookRotation(target.position + (target.rotation * lookOffset) - transform.position);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationDamping * Time.deltaTime);
         }
 
-        Vector3 desiredPosition = target.position - target.forward * distance + Vector3.up * height;
-
-        desiredPosition += target.rotation * lookOffset;
-
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, positionDamping * Time.deltaTime);
-
-        Quaternion desiredRotation = Quaternion.LookRotation(target.position + (target.rotation * lookOffset) - transform.position);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationDamping * Time.deltaTime);
+        public void SetTarget(Transform t)
+        {
+            target = t;
+        }
     }
 }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c1ec9aacf33d1449989d2a46ac45a9, type: 3}
-  m_Name: Line
+  m_Script: {fileID: 11500000, guid: aa209c7102fd48a469bf0f356e7fd4ce, type: 3}
+  m_Name: Level2
   m_EditorClassIdentifier: 
-  Length: 40
-  Steps: 40
+  LevelId: 0
+  Prefab: {fileID: 3232376013586540391, guid: daf37415111b2464cb8c5a435ada0443, type: 3}

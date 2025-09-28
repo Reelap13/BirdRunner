@@ -22,13 +22,14 @@ namespace Game.PlayerSide.Character
             _character = NetworkUtils.NetworkInstantiate(_character_prefab, point.Position, point.Rotation);
             Controller.Player.AddNetworkObject(_character.netIdentity);
             _character.Initialize(Controller);
+            Camera.main.transform.SetParent(_character.transform);
             OnCharacterCreated.Invoke(_character);
         }
 
         public void DestroyCharacter()
         {
             if (_character == null) return;
-            
+            Camera.main.transform.SetParent(null);
             Controller.Player.RemoveNetworkObjectFromList(_character.netIdentity);
             NetworkServer.Destroy(_character.gameObject);
             _character = null;

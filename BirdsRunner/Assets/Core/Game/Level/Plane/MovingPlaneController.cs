@@ -7,15 +7,37 @@ using Unity.Mathematics;
 public class MovingPlaneController : NetworkBehaviour
 {
     [SerializeField] private float planeSpeed = 10f;
+    [SerializeField] private float smoothingFactor = 0.1f; // Adjust in Inspector
 
     private SplineContainer _container;
     private float currentDistance;
+
+    private Vector3 _targetPosition; // Store target position
+    private Quaternion _targetRotation; // Store target rotation
 
 
     void Update()
     {
         if (!isServer) return;
         if (_container == null) return;
+
+        // Calculate the target position and rotation in Update
+        CalculateTargetPositionAndRotation();
+    }
+
+    void FixedUpdate()
+    {
+        if (!isServer) return;
+        if (_container == null) return;
+
+        // Smoothly interpolate towards the target position and rotation
+        transform.position = Vector3.Lerp(transform.position, _targetPosition, smoothingFactor);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, smoothingFactor);
+    }
+
+
+    private void CalculateTargetPositionAndRotation()
+    {
         currentDistance += planeSpeed * Time.deltaTime;
         var spline = _container.Spline;
 
@@ -30,8 +52,8 @@ public class MovingPlaneController : NetworkBehaviour
 
         Quaternion rot = Quaternion.LookRotation(tangent, up);
 
-        transform.position = pos;
-        transform.rotation = rot;
+        _targetPosition = pos;  // Store the calculated position
+        _targetRotation = rot;  // Store the calculated rotation
     }
 
     public void SetSpline(SplineContainer container)
