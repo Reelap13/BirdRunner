@@ -2,6 +2,7 @@ using System;
 using Game.PlayerSide.Character;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace Game.PlayerSide
 {
@@ -14,7 +15,11 @@ namespace Game.PlayerSide
 
         [SerializeField] private int _start_health = 3;
 
+        [SerializeField] private float invincibilityTime = 1f;
+
         private int _health;
+
+        private bool isInvincible;
 
         private void Awake()
         {
@@ -28,6 +33,7 @@ namespace Game.PlayerSide
 
         public void RestoreHealth()
         {
+            isInvincible = false;
             _health = _start_health;
         }
 
@@ -35,6 +41,8 @@ namespace Game.PlayerSide
         {
             if (!IsAlive)
                 return;
+
+            if (isInvincible) return;
 
             Debug.Log("OnTakeDamage");
             _health -= damage;
@@ -44,6 +52,17 @@ namespace Game.PlayerSide
                 Controller.CharacterCreator.Character.State = CharacterState.DEAD;
                 OnDied.Invoke();
             }
+            else
+            {
+                StartCoroutine(InvincibilityPeriod());
+            }
+        }
+
+        private IEnumerator InvincibilityPeriod()
+        {
+            isInvincible = true;
+            yield return new WaitForSeconds(invincibilityTime);
+            isInvincible = false;
         }
 
         public bool IsAlive => _health > 0;
