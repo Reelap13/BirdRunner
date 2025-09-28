@@ -4,31 +4,43 @@ namespace Game.PlayerCamera
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private Transform target;
-        [SerializeField] private float distance = 10f;
-        [SerializeField] private float height = 5f;
-        [SerializeField] private float positionDamping = 2f;
-        [SerializeField] private float rotationDamping = 1f;
-        [SerializeField] private Vector3 lookOffset = Vector3.zero;
+        [Tooltip("The target Transform to follow")]
+        public Transform target;
+
+        [Tooltip("How smoothly the camera catches up to the target.")]
+        [SerializeField] private float followSpeed = 5f;
+
+        [Tooltip("The desired distance from the target.")]
+        [SerializeField] private float distance = 5f;
+
+        [Tooltip("The height offset from the target.")]
+        [SerializeField] private float height = 2f;
+
+        [Tooltip("Higher values mean faster rotation.")]
+        [SerializeField] private float rotationDamping = 3f;
 
 
-        public void MoveCamera()
+        private Vector3 _desiredPosition;
+        private Quaternion _desiredRotation;
+
+        void FixedUpdate()
         {
-            if (!target)
+            if (target == null)
             {
-                Debug.LogWarning("CameraFollow: No target assigned!");
                 return;
             }
 
-            Vector3 desiredPosition = target.position - target.forward * distance + Vector3.up * height;
+            // Calculate the desired position based on distance, height, and target
+            _desiredPosition = target.position + Vector3.up * height - target.forward * distance;
 
-            desiredPosition += target.rotation * lookOffset;
+            //Smooth following
+            transform.position = Vector3.Lerp(transform.position, _desiredPosition, followSpeed * Time.deltaTime);
 
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, positionDamping * Time.deltaTime);
+            // Calculate rotation based on target
+            _desiredRotation = Quaternion.LookRotation(target.position - transform.position);
 
-            Quaternion desiredRotation = Quaternion.LookRotation(target.position + (target.rotation * lookOffset) - transform.position);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationDamping * Time.deltaTime);
+            // Smoothly apply the rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, _desiredRotation, rotationDamping * Time.deltaTime);
         }
 
         public void SetTarget(Transform t)

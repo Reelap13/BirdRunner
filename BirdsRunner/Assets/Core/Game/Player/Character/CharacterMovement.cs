@@ -1,6 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 using Mirror;
+using Game.PlayerCamera;
 
 namespace Game.PlayerSide.Character
 {
@@ -40,6 +41,10 @@ namespace Game.PlayerSide.Character
 
         public void Start()
         {
+            if (isOwned)
+            {
+                Camera.main.GetComponent<CameraController>().SetTarget(transform);
+            }
             plane = FindFirstObjectByType<MovingPlaneController>();
             _targetPosition = transform.position;
             _targetRotation = transform.rotation;
