@@ -4,6 +4,7 @@ using Game.Level.Constructor.Tube;
 using Game.Level.Constructor.Plane;
 using UnityEngine;
 using UnityEngine.Splines;
+using System.Collections.Generic;
 
 namespace Game.Level.Constructor
 {
@@ -34,5 +35,7 @@ namespace Game.Level.Constructor
         {
             _tube.Generate();
         }
+
+        public ObstaclesConstructor Obstacles { get => _obstacles; private set { } }
     }
 }

@@ -63,6 +63,59 @@ Transform:
   - {fileID: 3976531177518121635}
   m_Father: {fileID: 8490938351946488051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6952679007958851128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1416219603425268322}
+  - component: {fileID: 5902982820459659558}
+  m_Layer: 6
+  m_Name: Magnetic Field
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1416219603425268322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952679007958851128}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8490938351946488051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5902982820459659558
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952679007958851128}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 55
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7699713986078152283
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +131,7 @@ GameObject:
   - component: {fileID: 1786280291369213182}
   - component: {fileID: 3279447026722735806}
   - component: {fileID: 806561011558299378}
+  - component: {fileID: 7199773602181450882}
   m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -100,6 +154,7 @@ Transform:
   m_Children:
   - {fileID: 1992933888381095744}
   - {fileID: 7303570918908505393}
+  - {fileID: 1416219603425268322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7251805863938454200
@@ -222,7 +277,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &806561011558299378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +297,22 @@ MonoBehaviour:
   shootingPoint: {fileID: 7303570918908505393}
   shootingForce: 100
   forceMode: 1
+--- !u!114 &7199773602181450882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699713986078152283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2a2b16f040cdb409931d2c6b075a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  magneticFieldCollider: {fileID: 6952679007958851128}
 --- !u!1 &7774377852606636837
 GameObject:
   m_ObjectHideFlags: 0

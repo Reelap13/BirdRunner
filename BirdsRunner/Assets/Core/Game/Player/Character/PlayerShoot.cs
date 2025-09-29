@@ -21,6 +21,7 @@ namespace Game.PlayerSide.Character
 
         public void Start()
         {
+            if (!isOwned) return;
             InputManager.Instance.GetControls().Player.Attack.started += _ => HandleFire();
         }
 
