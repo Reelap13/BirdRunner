@@ -158,7 +158,6 @@ GameObject:
   - component: {fileID: 1179564353020216804}
   - component: {fileID: 111572502498844752}
   - component: {fileID: 6043796967149218027}
-  - component: {fileID: 4440088103503310465}
   - component: {fileID: 156138738156302164}
   - component: {fileID: 2959304101410212784}
   - component: {fileID: 6319254199244487694}
@@ -197,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultGameMode: {fileID: 6043796967149218027}
-  separationGameMode: {fileID: 4440088103503310465}
   magnetismGameMode: {fileID: 156138738156302164}
   ropeGameMode: {fileID: 2959304101410212784}
   stickyGameMode: {fileID: 6319254199244487694}
@@ -211,19 +209,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d2e3c915c263a240a09dc6cc3d03bb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 111572502498844752}
---- !u!114 &4440088103503310465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6694901929841005685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4183e9b0efc52cc4b82b1894af0f1d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 111572502498844752}

@@ -70,7 +70,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  gameMode: 2
+  gameMode: 1
 --- !u!114 &8773472955667376358
 MonoBehaviour:
   m_ObjectHideFlags: 0

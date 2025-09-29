@@ -6,7 +6,6 @@ namespace Game.GameMode
     public enum GameModeTypes
     {
         Default,
-        Separation,
         Magnetism,
         Rope,
         Sticky
@@ -14,7 +13,6 @@ namespace Game.GameMode
     public class GameModesController : GameSystem
     {
         [SerializeField] private DefaultGameModeController defaultGameMode;
-        [SerializeField] private SeparationGameModeController separationGameMode;
         [SerializeField] private MagnetismGameModeController magnetismGameMode;
         [SerializeField] private RopeGameModeController ropeGameMode;
         [SerializeField] private StickyGameModeController stickyGameMode;
@@ -53,9 +51,6 @@ namespace Game.GameMode
             {
                 case (GameModeTypes.Default):
                     currentController = defaultGameMode;
-                    break;
-                case (GameModeTypes.Separation):
-                    currentController = separationGameMode;
                     break;
                 case (GameModeTypes.Magnetism):
                     currentController = magnetismGameMode;
