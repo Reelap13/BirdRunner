@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3692081694025578064}
   - component: {fileID: 8773472955667376358}
   - component: {fileID: 4847037120767419874}
+  - component: {fileID: 3202505504520512295}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Untagged
@@ -89,3 +90,18 @@ MonoBehaviour:
   syncInterval: 0
   windForce: 0.3
   windVector: {x: 1, y: 0}
+--- !u!114 &3202505504520512295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007196260534204137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49f7403532cddf4b91dddcbf3c60ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb438b2bc0fe08f45b88846e6a1b6dd5, type: 3}
   m_Name: SizePortal
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1007196260534204137, guid: ebab77974d3b5ea4981b94ca51061787, type: 3}
+  Prefab: {fileID: -4496749585722785776, guid: ebab77974d3b5ea4981b94ca51061787, type: 3}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb438b2bc0fe08f45b88846e6a1b6dd5, type: 3}
   m_Name: Wind
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1007196260534204137, guid: bc22024db2a051644984d24ecb3b2406, type: 3}
+  Prefab: {fileID: 3202505504520512295, guid: bc22024db2a051644984d24ecb3b2406, type: 3}
