@@ -83,6 +83,6 @@ namespace Game.Level.Constructor.Obstacles
             return obstacle;
         }
 
-        public List<GameObject> Spawned { get => _spawned; private set { } }
+        public List<ObstacleController> Spawned { get => _spawned; private set { } }
     }
 }

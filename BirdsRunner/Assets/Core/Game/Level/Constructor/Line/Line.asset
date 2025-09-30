@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c1ec9aacf33d1449989d2a46ac45a9, type: 3}
   m_Name: Line
   m_EditorClassIdentifier: 
-  Length: 40
-  Steps: 40
+  Length: 200
+  Steps: 200

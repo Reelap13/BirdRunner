@@ -15,7 +15,7 @@ namespace Game.Level.Obstacles
             if (!isServer)
                 return;
 
-            _body.rotation *= Quaternion.Euler(_rotate_direction * _rotation_speed * Time.deltaTime);
+            _body.localRotation *= Quaternion.Euler(_rotate_direction * _rotation_speed * Time.deltaTime);
         }
     }
 }
