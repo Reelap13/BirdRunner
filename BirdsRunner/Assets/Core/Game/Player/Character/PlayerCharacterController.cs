@@ -25,7 +25,6 @@ namespace Game.PlayerSide.Character
         public override void OnStartAuthority()
         {
             Local = this;
-            Camera.main.GetComponent<CameraController>().SetTarget(transform);
             State = CharacterState.ALIVE;
         }
 

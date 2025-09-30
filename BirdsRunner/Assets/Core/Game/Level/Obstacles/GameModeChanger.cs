@@ -17,6 +17,7 @@ namespace Game.GameMode {
             if (!isServer)
                 return;
             if (isTriggered) return;
+            isTriggered = true;
 
             OnGameModeChanged.Invoke(gameMode);
 

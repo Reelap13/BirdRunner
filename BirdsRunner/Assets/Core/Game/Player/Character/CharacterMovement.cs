@@ -1,7 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
 using Mirror;
-using Game.PlayerCamera;
 
 namespace Game.PlayerSide.Character
 {
@@ -22,6 +21,10 @@ namespace Game.PlayerSide.Character
         [SerializeField] private float pitchSmoothTime = 0.2f;
         [SerializeField] private float constraintSmoothingFactor = 0.1f;
 
+        [SerializeField] private float maxRopeDistance = 5f;
+        [SerializeField] private float softRopeDistance = 4f;
+        [SerializeField] private float ropeCorrectionFactor = 0.2f;
+
         private float _currentBankAngle = 0f;
         private float _bankVelocity = 0f;
         private float _currentPitchAngle = 0f;
@@ -32,6 +35,14 @@ namespace Game.PlayerSide.Character
         private MovingPlaneController plane;
         private Vector3 _targetPosition;
         private Quaternion _targetRotation;
+
+        private bool isRopeActive = false;
+        private Transform otherPlayer;
+
+        private float birdHeight = 0.5f;
+        private bool stickyFeatherActive = false;
+        private bool isVertical;
+        private CharacterMovement otherMovement;
 
 
         public void UpdateSideDirection(float2 sideDirection)
@@ -90,20 +101,54 @@ namespace Game.PlayerSide.Character
             localPosition.z = 0;
             _targetPosition = plane.transform.TransformPoint(localPosition);
 
+            if (isRopeActive && otherPlayer != null)
+            {
+                EnforceRopeConstraint();
+            }
+
+            if(stickyFeatherActive && otherMovement != null)
+            {
+                EnforceStickyFeathersConstraint();
+            }
+
         }
 
         private void CalculateSideMovement()
         {
+            Vector3 direction = _side_direction;
+            if (stickyFeatherActive && otherMovement != null)
+            {
+                if (isVertical)
+                {
+                    direction.x = otherMovement.SideDirection.x;
+                }
+                else
+                {
+                    direction.y = otherMovement.SideDirection.y;
+                }
+            }
             // Calculate smooth side movement
-            float targetBankAngle = -_side_direction.x * maxBankAngle;
+            float targetBankAngle = -direction.x * maxBankAngle;
             _currentBankAngle = Mathf.SmoothDampAngle(_currentBankAngle, targetBankAngle, ref _bankVelocity, bankSmoothTime);
 
-            float targetPitchAngle = -_side_direction.y * maxPitchAngle;
+            float targetPitchAngle = -direction.y * maxPitchAngle;
             _currentPitchAngle = Mathf.SmoothDampAngle(_currentPitchAngle, targetPitchAngle, ref _pitchVelocity, pitchSmoothTime);
         }
 
         private void Move()
         {
+            Vector3 direction = _side_direction;
+            if (stickyFeatherActive && otherMovement != null)
+            {
+                if (isVertical)
+                {
+                    direction.x = otherMovement.SideDirection.x;
+                }
+                else
+                {
+                    direction.y = otherMovement.SideDirection.y;
+                }
+            }
             // Apply smoothing and movement using MovePosition and MoveRotation
             float t = rotationSpeed * Time.fixedDeltaTime; // Use fixedDeltaTime here
             Quaternion newRotation = Quaternion.Slerp(_rb.rotation, _targetRotation, t);
@@ -112,43 +157,69 @@ namespace Game.PlayerSide.Character
             // Smoothly move towards the constrained position
             Vector3 newPosition = Vector3.Lerp(_rb.position, _targetPosition, constraintSmoothingFactor);
 
-            _rb.MovePosition(newPosition + _side_direction * _side_speed * Time.fixedDeltaTime);
+
+            _rb.MovePosition(newPosition + direction * _side_speed * Time.fixedDeltaTime);
             model.localRotation = Quaternion.Euler(_currentPitchAngle, 0, _currentBankAngle);
 
         }
 
-        //private void MoveForward()
-        //{
-        //    Vector3 worldPosition = _rb.position;
+        private void EnforceRopeConstraint()
+        {
+            Vector3 toOther = otherPlayer.position - _rb.position;
+            float distance = toOther.magnitude;
 
-        //    Vector3 localPosition = plane.transform.InverseTransformPoint(worldPosition);
+            if (distance > maxRopeDistance)
+            {
+                // HARD LIMIT: Snap the player back to the max distance
+                _targetPosition = otherPlayer.position - toOther.normalized * maxRopeDistance;
+            }
+            else if (distance > softRopeDistance)
+            {
+                // SOFT PULL: Apply a correction to pull the player closer
+                Vector3 correction = toOther.normalized * (distance - softRopeDistance) * ropeCorrectionFactor;
+                _targetPosition += correction;
+            }
+        }
 
-        //    localPosition.z = 0;
+        private void EnforceStickyFeathersConstraint()
+        {
+            if (!isVertical) return;
+            Vector3 toOther = otherMovement.transform.position + Vector3.up * birdHeight - _rb.position;
+            float distance = toOther.magnitude;
 
-        //    Vector3 constrainedWorldPosition = plane.transform.TransformPoint(localPosition);
+            if (distance > 0.05f)
+            {
+                _targetPosition = otherMovement.transform.position - toOther.normalized * birdHeight;
+            }
 
-        //    // Calculate the interpolation factor this frame
-        //    float t = rotationSpeed * Time.deltaTime;
+        }
 
-        //    // Slerp towards the target rotation
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, plane.transform.rotation, t);
+        public void ActivateRope(Transform other)
+        {
+            isRopeActive = true;
+            otherPlayer = other;
+        }
 
-        //    _rb.MovePosition(constrainedWorldPosition);
-        //}
+        public void DiactivateRope()
+        {
+            isRopeActive = false;
+            otherPlayer = null;
+        }
 
+        public void ActivateStickyFeathers(bool isVertical, CharacterMovement other)
+        {
+            stickyFeatherActive = true;
+            this.isVertical = isVertical;
+            otherMovement = other;
+        }
 
-        //private void MoveSide()
-        //{
-        //    float targetBankAngle = -_side_direction.x * maxBankAngle;
-        //    _currentBankAngle = Mathf.SmoothDampAngle(_currentBankAngle, targetBankAngle, ref _bankVelocity, bankSmoothTime);
+        public void DiactivateStickyFeathers()
+        {
+            stickyFeatherActive = false;
+            otherMovement = null;
+        }
 
-        //    float targetPitchAngle = -_side_direction.y * maxPitchAngle;
-        //    _currentPitchAngle = Mathf.SmoothDampAngle(_currentPitchAngle, targetPitchAngle, ref _pitchVelocity, pitchSmoothTime);
-
-        //    model.localRotation = Quaternion.Euler(_currentPitchAngle, 0, _currentBankAngle);
-        //    _rb.MovePosition(_rb.position + _side_direction * _side_speed * Time.deltaTime);
-
-        //}
+        public Vector3 SideDirection { get => _side_direction; private set { } }
 
     }
 }

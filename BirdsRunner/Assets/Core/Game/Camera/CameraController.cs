@@ -1,9 +1,12 @@
 using UnityEngine;
+using Mirror;
+using System;
 
 namespace Game.PlayerCamera
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : NetworkBehaviour
     {
+        public Guid playerId;
         [Tooltip("The target Transform to follow")]
         public Transform target;
 
@@ -25,6 +28,7 @@ namespace Game.PlayerCamera
 
         void FixedUpdate()
         {
+            if (!isServer) return;
             if (target == null)
             {
                 return;
@@ -34,13 +38,13 @@ namespace Game.PlayerCamera
             _desiredPosition = target.position + Vector3.up * height - target.forward * distance;
 
             //Smooth following
-            transform.position = Vector3.Lerp(transform.position, _desiredPosition, followSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, _desiredPosition, followSpeed * Time.fixedDeltaTime);
 
             // Calculate rotation based on target
             _desiredRotation = Quaternion.LookRotation(target.position - transform.position);
 
             // Smoothly apply the rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, _desiredRotation, rotationDamping * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _desiredRotation, rotationDamping * Time.fixedDeltaTime);
         }
 
         public void SetTarget(Transform t)
