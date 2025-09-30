@@ -28,7 +28,6 @@ namespace Game.PlayerSide.Character
         public void DestroyCharacter()
         {
             if (_character == null) return;
-            
             Controller.Player.RemoveNetworkObjectFromList(_character.netIdentity);
             NetworkServer.Destroy(_character.gameObject);
             _character = null;

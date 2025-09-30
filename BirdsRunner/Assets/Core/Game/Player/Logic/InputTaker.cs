@@ -13,6 +13,7 @@ namespace Game.PlayerSide
 
         private void Update()
         {
+            if (!isOwned) return;
             float h = InputManager.Instance.GetControls().Player.Move.ReadValue<Vector2>().x;
             float v = InputManager.Instance.GetControls().Player.Move.ReadValue<Vector2>().y;
 
@@ -26,6 +27,11 @@ namespace Game.PlayerSide
 
         [Command]
         public void CommandUpdateSideDirection(float2 direction)
+        {
+            Controller.CharacterCreator.Character.Movement.UpdateSideDirection(direction);
+        }
+
+        public void UpdateSideDirection(float2 direction)
         {
             Controller.CharacterCreator.Character.Movement.UpdateSideDirection(direction);
         }

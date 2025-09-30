@@ -6,6 +6,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.Splines;
+using UnityEngine.Events;
+using System;
 
 namespace Game.Level.Constructor.Obstacles
 {
@@ -16,6 +18,8 @@ namespace Game.Level.Constructor.Obstacles
         [SerializeField] private List<ObstacleCreatingData> _obstacles;
 
         private List<ObstacleController> _spawned = new();
+
+        [NonSerialized] public UnityEvent OnObstaclesPlaced = new();
 
         public void Generate(bool is_editor = false)
         {
@@ -78,5 +82,7 @@ namespace Game.Level.Constructor.Obstacles
             }
             return obstacle;
         }
+
+        public List<GameObject> Spawned { get => _spawned; private set { } }
     }
 }
