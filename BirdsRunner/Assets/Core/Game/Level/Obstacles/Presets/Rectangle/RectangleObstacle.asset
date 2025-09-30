@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c1ec9aacf33d1449989d2a46ac45a9, type: 3}
-  m_Name: Line
+  m_Script: {fileID: 11500000, guid: bb438b2bc0fe08f45b88846e6a1b6dd5, type: 3}
+  m_Name: RectangleObstacle
   m_EditorClassIdentifier: 
-  Length: 200
-  Steps: 200
+  Prefab: {fileID: 4301209791396772807, guid: 56c5200414411594f9b0a17800bd13da, type: 3}

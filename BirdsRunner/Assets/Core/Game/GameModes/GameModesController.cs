@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Game.Level.Obstacles;
 
 namespace Game.GameMode
 {
@@ -32,7 +33,7 @@ namespace Game.GameMode
 
         private void RegisterObstacles()
         {
-            List<GameObject> obstacles = Game.Level.Level.LevelConstructor.Obstacles.Spawned;
+            List<ObstacleController> obstacles = Game.Level.Level.LevelConstructor.Obstacles.Spawned;
 
             foreach (var item in obstacles)
             {

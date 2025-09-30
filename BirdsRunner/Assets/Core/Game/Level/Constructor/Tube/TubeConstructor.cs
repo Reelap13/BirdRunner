@@ -77,5 +77,7 @@ namespace Game.Level.Constructor.Tube
             var meshRenderer = GetComponent<MeshRenderer>();
             meshRenderer.material = _material;
         }
+
+        public TubePreset TubePreset { get { return _preset; } }    
     }
 }

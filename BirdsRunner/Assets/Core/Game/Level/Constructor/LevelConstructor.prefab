@@ -170,11 +170,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 2900626512214930874}
+  _tube_constructor: {fileID: 5100096485574291041}
   _obstacles:
   - Preset: {fileID: 11400000, guid: 1e06a0ebf5108ea4bb91e80090166192, type: 2}
     SpawnDistance: 5
+    Offset: {x: 0, y: 0}
+    Rotation: 0
   - Preset: {fileID: 11400000, guid: 1e06a0ebf5108ea4bb91e80090166192, type: 2}
     SpawnDistance: 7
+    Offset: {x: 0, y: 0}
+    Rotation: 0
 --- !u!1 &4388622394526264723
 GameObject:
   m_ObjectHideFlags: 0

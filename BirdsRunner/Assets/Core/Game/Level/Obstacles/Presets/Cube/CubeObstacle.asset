@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb438b2bc0fe08f45b88846e6a1b6dd5, type: 3}
   m_Name: CubeObstacle
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 7517378947470992897, guid: 0331b81c5ac44f942b94763c6f8de377, type: 3}
+  Prefab: {fileID: 1180420025669149415, guid: 0331b81c5ac44f942b94763c6f8de377, type: 3}

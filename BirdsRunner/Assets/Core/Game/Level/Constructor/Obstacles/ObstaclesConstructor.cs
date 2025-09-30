@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Game.Level.Constructor.Tube;
 using Game.Level.Obstacles;
 using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.Splines;
 using UnityEngine.Events;
 using System;
@@ -12,9 +14,10 @@ namespace Game.Level.Constructor.Obstacles
     public class ObstaclesConstructor : MonoBehaviour
     {
         [SerializeField] private SplineContainer _container;
+        [SerializeField] private TubeConstructor _tube_constructor;
         [SerializeField] private List<ObstacleCreatingData> _obstacles;
 
-        private List<GameObject> _spawned = new List<GameObject>();
+        private List<ObstacleController> _spawned = new();
 
         [NonSerialized] public UnityEvent OnObstaclesPlaced = new();
 
@@ -51,21 +54,35 @@ namespace Game.Level.Constructor.Obstacles
                 SplineUtility.Evaluate(spline, t,
                     out float3 pos, out float3 tangent, out float3 up);
 
-                Quaternion rot = Quaternion.LookRotation(tangent, up);
+                Vector3 forward = new Vector3(tangent.x, tangent.y, tangent.z).normalized;
+                Vector3 right = Vector3.Cross(up, forward).normalized;
+                Vector3 real_up = Vector3.Cross(forward, right).normalized;
 
-                var obstacle = CreateObstacle(data.Preset, pos, rot, is_editor);
+                float radius = _tube_constructor.TubePreset.Radius;
+                Vector3 position = new Vector3(pos.x, pos.y, pos.z) +
+                    right * (data.Offset.x * radius) + real_up * (data.Offset.y * radius);
+
+                Quaternion baseRotation = Quaternion.LookRotation(forward, real_up);
+                Quaternion twist = Quaternion.AngleAxis(data.Rotation * 360f, forward);
+                Quaternion rotation = twist * baseRotation;
+
+                var obstacle = CreateObstacle(data.Preset, position, rotation, distance, total_length, is_editor);
                 _spawned.Add(obstacle);
             }
         }
 
-        private GameObject CreateObstacle(ObstaclesPreset preset, float3 pos, Quaternion rot, bool is_editor)
+        private ObstacleController CreateObstacle(ObstaclesPreset preset, Vector3 pos, Quaternion rot, float distance, float total_length, bool is_editor)
         {
-            GameObject obstacle = null;
+            ObstacleController obstacle = null;
             if (is_editor) obstacle = Instantiate(preset.Prefab, pos, rot, transform);
-            else obstacle = NetworkUtils.NetworkInstantiate(preset.Prefab, pos, rot, transform);
+            else
+            {
+                obstacle = NetworkUtils.NetworkInstantiate(preset.Prefab, pos, rot, transform);
+                obstacle.Initialize(_container, total_length, distance);
+            }
             return obstacle;
         }
 
-        public List<GameObject> Spawned { get => _spawned; private set { } }
+        public List<ObstacleController> Spawned { get => _spawned; private set { } }
     }
 }
