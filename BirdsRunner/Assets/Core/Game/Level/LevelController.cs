@@ -26,5 +26,7 @@ namespace Game.Level
                 Rotation = rot,
             };
         }
+
+        public LevelConstructor LevelConstructor { get => _constructor; private set { } }
     }
 }

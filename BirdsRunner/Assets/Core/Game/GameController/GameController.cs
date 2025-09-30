@@ -4,6 +4,7 @@ using Game.Level;
 using Game.Race;
 using UnityEngine;
 using UnityEngine.Events;
+using Game.GameMode;
 
 namespace Game
 {
@@ -21,6 +22,8 @@ namespace Game
         public CutsceneController Cutscene { get; private set; }
         [field: SerializeField]
         public RaceController Race { get; private set; }
+        [field: SerializeField]
+        public GameModesController GameModes { get; private set; }
 
         public void Initialize() => OnInitialized.Invoke();
         public void StartGame() => OnStarted.Invoke();

@@ -284,6 +284,7 @@ Transform:
   - {fileID: 1034359695797840902}
   - {fileID: 3407269552609221490}
   - {fileID: 4665661384642736896}
+  - {fileID: 1197892170806512443}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2900626512214930874
@@ -1142,3 +1143,50 @@ MonoBehaviour:
   _curve: {fileID: 4522526698343776044}
   _tube: {fileID: 5100096485574291041}
   _obstacles: {fileID: 7945553539796144993}
+  _plane: {fileID: 2717106819709046160}
+--- !u!1 &8174419764374218354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1197892170806512443}
+  - component: {fileID: 2717106819709046160}
+  m_Layer: 0
+  m_Name: MovingPlaneConstructor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1197892170806512443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174419764374218354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7276653826002683986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2717106819709046160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174419764374218354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf128891e0df6f419fd1627f2f51c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _container: {fileID: 2900626512214930874}
+  planePrefab: {fileID: 9116778166948565908, guid: 790242417ec2fbc42bef451271e6a276, type: 3}

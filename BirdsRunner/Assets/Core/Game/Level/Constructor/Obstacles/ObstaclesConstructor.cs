@@ -4,6 +4,8 @@ using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.Events;
+using System;
 
 namespace Game.Level.Constructor.Obstacles
 {
@@ -13,6 +15,8 @@ namespace Game.Level.Constructor.Obstacles
         [SerializeField] private List<ObstacleCreatingData> _obstacles;
 
         private List<GameObject> _spawned = new List<GameObject>();
+
+        [NonSerialized] public UnityEvent OnObstaclesPlaced = new();
 
         public void Generate(bool is_editor = false)
         {
@@ -61,5 +65,7 @@ namespace Game.Level.Constructor.Obstacles
             else obstacle = NetworkUtils.NetworkInstantiate(preset.Prefab, pos, rot, transform);
             return obstacle;
         }
+
+        public List<GameObject> Spawned { get => _spawned; private set { } }
     }
 }
