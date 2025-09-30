@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 111572502498844752}
+  birdHeight: 0.5
 --- !u!1 &8319690737434041822
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,31 +1,34 @@
 using UnityEngine;
 using Mirror;
 
-public class PlayerMagneticFieldController : NetworkBehaviour
+namespace Game.GameMode
 {
-    [SerializeField] private GameObject magneticFieldCollider;
-
-    public void ActivateField()
+    public class PlayerMagneticFieldController : NetworkBehaviour
     {
-        magneticFieldCollider.SetActive(true);
-        RpcActivateField();
-    }
+        [SerializeField] private GameObject magneticFieldCollider;
 
-    public void DiactivateField()
-    {
-        magneticFieldCollider.SetActive(false);
-        RpcDiactivateField();
-    }
+        public void ActivateField()
+        {
+            magneticFieldCollider.SetActive(true);
+            RpcActivateField();
+        }
 
-    [ClientRpc]
-    private void RpcActivateField()
-    {
-        magneticFieldCollider.SetActive(true);
-    }
+        public void DiactivateField()
+        {
+            magneticFieldCollider.SetActive(false);
+            RpcDiactivateField();
+        }
 
-    [ClientRpc]
-    private void RpcDiactivateField()
-    {
-        magneticFieldCollider.SetActive(false);
+        [ClientRpc]
+        private void RpcActivateField()
+        {
+            magneticFieldCollider.SetActive(true);
+        }
+
+        [ClientRpc]
+        private void RpcDiactivateField()
+        {
+            magneticFieldCollider.SetActive(false);
+        }
     }
 }

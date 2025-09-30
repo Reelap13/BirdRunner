@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.PlayerSide.Character;
 
 namespace Game.GameMode
 {
@@ -6,12 +7,31 @@ namespace Game.GameMode
     {
         public override void ActivateGameMode()
         {
-            throw new System.NotImplementedException();
+            PlayerCharacterController serverPlayer = null;
+            PlayerCharacterController clientPlayer = null;
+            foreach (var player in controller.Game.Players.Players)
+            {
+                
+                if (player.isOwned)
+                {
+                    serverPlayer = player.CharacterCreator.Character;
+                }
+                else
+                {
+                    clientPlayer = player.CharacterCreator.Character;
+                }
+            }
+            if (serverPlayer == null || clientPlayer == null) return;
+            serverPlayer.GetComponent<CharacterMovement>().ActivateRope(clientPlayer.transform);
+            clientPlayer.GetComponent<CharacterMovement>().ActivateRope(serverPlayer.transform);
         }
 
         public override void DiactivateGameMode()
         {
-            throw new System.NotImplementedException();
+            foreach (var player in controller.Game.Players.Players)
+            {
+                player.GetComponent<CharacterMovement>().DiactivateRope();
+            }
         }
     }
 }

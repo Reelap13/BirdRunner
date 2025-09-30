@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Controller>k__BackingField: {fileID: 4946357414854406475}
-  _start_health: 3
+  _start_health: 1
+  invincibilityTime: 1
 --- !u!1 &3644195291126731272
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   syncInterval: 0
   <Controller>k__BackingField: {fileID: 4946357414854406475}
   _character_prefab: {fileID: 643281548553802529, guid: ba8774c8fc3db194588442306a6a4f39, type: 3}
+  cameraPointPrefab: {fileID: 3195259141124742947, guid: 6541765e228b1c240b14773e4100d994, type: 3}
 --- !u!114 &2750545646142137476
 MonoBehaviour:
   m_ObjectHideFlags: 0
