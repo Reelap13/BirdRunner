@@ -25,6 +25,11 @@ namespace Game.PlayerSide.Character
         [SerializeField] private float softRopeDistance = 4f;
         [SerializeField] private float ropeCorrectionFactor = 0.2f;
 
+        [SerializeField] private float bigSize = 2f;
+        [SerializeField] private float smallSize = 0.5f;
+        [SerializeField] private float bigSpeedMultiplier = 2f;
+        [SerializeField] private float smallSpeedMultiplier = 0.5f;
+
         private float _currentBankAngle = 0f;
         private float _bankVelocity = 0f;
         private float _currentPitchAngle = 0f;
@@ -43,6 +48,13 @@ namespace Game.PlayerSide.Character
         private bool stickyFeatherActive = false;
         private bool isVertical;
         private CharacterMovement otherMovement;
+
+        private float currentSpeedMultiplier = 1f;
+
+        private Vector2 currentWindVector;
+        private float currentWindForce;
+
+
 
 
         public void UpdateSideDirection(float2 sideDirection)
@@ -111,6 +123,11 @@ namespace Game.PlayerSide.Character
                 EnforceStickyFeathersConstraint();
             }
 
+            if(currentWindForce > 0f && currentWindVector != Vector2.zero)
+            {
+                EnforceWindConstraint();
+            }
+
         }
 
         private void CalculateSideMovement()
@@ -158,7 +175,7 @@ namespace Game.PlayerSide.Character
             Vector3 newPosition = Vector3.Lerp(_rb.position, _targetPosition, constraintSmoothingFactor);
 
 
-            _rb.MovePosition(newPosition + direction * _side_speed * Time.fixedDeltaTime);
+            _rb.MovePosition(newPosition + direction * _side_speed * currentSpeedMultiplier * Time.fixedDeltaTime);
             model.localRotation = Quaternion.Euler(_currentPitchAngle, 0, _currentBankAngle);
 
         }
@@ -194,6 +211,13 @@ namespace Game.PlayerSide.Character
 
         }
 
+        private void EnforceWindConstraint()
+        {
+            Vector3 wind = new Vector3(currentWindVector.x, currentWindVector.y, 0f) * currentWindForce;
+            _targetPosition += wind;
+
+        }
+
         public void ActivateRope(Transform other)
         {
             isRopeActive = true;
@@ -217,6 +241,41 @@ namespace Game.PlayerSide.Character
         {
             stickyFeatherActive = false;
             otherMovement = null;
+        }
+
+        [ClientRpc]
+        public void SetSize(bool isBig)
+        {
+            if (isBig)
+            {
+                transform.localScale = new(bigSize, bigSize, bigSize);
+                currentSpeedMultiplier = bigSpeedMultiplier;
+            }
+            else
+            {
+                transform.localScale = new(smallSize, smallSize, smallSize);
+                currentSpeedMultiplier = smallSpeedMultiplier;
+            }
+            Debug.Log(currentSpeedMultiplier);
+        }
+
+        [ClientRpc]
+        public void ResetSize()
+        {
+            transform.localScale = new(1, 1, 1);
+            currentSpeedMultiplier = 1f;
+        }
+
+        public void SetWindForce(Vector2 windVector, float windForce)
+        {
+            currentWindVector = windVector;
+            currentWindForce = windForce;
+        }
+
+        public void ResetWindForce()
+        {
+            currentWindVector = Vector2.zero;
+            currentWindForce = 0f;
         }
 
         public Vector3 SideDirection { get => _side_direction; private set { } }
