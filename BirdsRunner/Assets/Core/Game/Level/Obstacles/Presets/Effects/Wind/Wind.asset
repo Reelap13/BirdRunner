@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb438b2bc0fe08f45b88846e6a1b6dd5, type: 3}
-  m_Name: Rope
+  m_Name: Wind
   m_EditorClassIdentifier: 
-  Prefab: {fileID: -677094208393875108, guid: 8a5b5bafe297bed47b5a573f952420d2, type: 3}
+  Prefab: {fileID: 3202505504520512295, guid: bc22024db2a051644984d24ecb3b2406, type: 3}
