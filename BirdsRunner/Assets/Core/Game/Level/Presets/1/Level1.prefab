@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5233771495284233231
 Transform:
   m_ObjectHideFlags: 0
@@ -5633,7 +5633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[0].Preset
@@ -5642,15 +5642,15 @@ PrefabInstance:
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[1].Preset
       value: 
-      objectReference: {fileID: 11400000, guid: 1b268e9d2277244458038130e736c318, type: 2}
+      objectReference: {fileID: 11400000, guid: e05aab21fea197e47828eb885e65894d, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[2].Preset
       value: 
-      objectReference: {fileID: 11400000, guid: 1b268e9d2277244458038130e736c318, type: 2}
+      objectReference: {fileID: 11400000, guid: 67d621b4025472441b376eb8622786d7, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[3].Preset
       value: 
-      objectReference: {fileID: 11400000, guid: f00736812bea38e4b9e66dde367de64e, type: 2}
+      objectReference: {fileID: 11400000, guid: 1b268e9d2277244458038130e736c318, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[4].Preset
       value: 
@@ -5658,7 +5658,7 @@ PrefabInstance:
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[5].Preset
       value: 
-      objectReference: {fileID: 11400000, guid: d276719e40a538a4b9a8eaf5f1a26585, type: 2}
+      objectReference: {fileID: 11400000, guid: f00736812bea38e4b9e66dde367de64e, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[6].Preset
       value: 
@@ -5669,6 +5669,10 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 2119495929867c84787d233995c37ae3, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[2].Rotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _obstacles.Array.data[3].Rotation
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
@@ -5677,23 +5681,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[1].SpawnDistance
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[2].SpawnDistance
-      value: 25
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[3].SpawnDistance
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[4].SpawnDistance
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[5].SpawnDistance
-      value: 120
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[6].SpawnDistance

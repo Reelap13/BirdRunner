@@ -74,8 +74,8 @@ namespace Game.Level.Constructor.Tube
             var mesh_collider = GetComponent<MeshCollider>();
             mesh_collider.sharedMesh = mesh;
 
-            var meshRenderer = GetComponent<MeshRenderer>();
-            meshRenderer.material = _material;
+            //var meshRenderer = GetComponent<MeshRenderer>();
+            //meshRenderer.material = _material;
         }
 
         public TubePreset TubePreset { get { return _preset; } }    

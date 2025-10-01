@@ -41,7 +41,7 @@ namespace Game.GameMode
         {
             foreach (var player in controller.Game.Players.Players)
             {
-                player.GetComponent<CharacterMovement>().DiactivateStickyFeathers();
+                player.CharacterCreator.Character.GetComponent<CharacterMovement>().DiactivateStickyFeathers();
             }
         }
     }
