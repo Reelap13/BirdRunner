@@ -49,5 +49,7 @@ namespace Game.PlayerSide
                 _amount = Mathf.Clamp(_amount, 0, _max_amount);
             }
         }
+
+        public float Amount { get { return _amount; } }
     }
 }
