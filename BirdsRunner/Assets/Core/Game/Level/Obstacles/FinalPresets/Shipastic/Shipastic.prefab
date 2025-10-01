@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4788426545411439327}
   - component: {fileID: 9164038374253685817}
   - component: {fileID: 5835221107297590118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2534525728442527969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4852318052204338617}
   - component: {fileID: 8224766686943605531}
   - component: {fileID: 7724667314949105716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shipastic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 8144607976294501521}
   - component: {fileID: 1987513324852473161}
   - component: {fileID: 5841341848175745447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 73567419782388974}
   - component: {fileID: 6571268444534298515}
   - component: {fileID: 6244859509983808955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

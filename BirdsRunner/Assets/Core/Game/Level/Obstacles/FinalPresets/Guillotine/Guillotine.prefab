@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5860004452611864707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MovementPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 143016591238985059}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 546628721665955004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3115342327578257945}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 1271611822290260097}
   - component: {fileID: 5227973272914545988}
   - component: {fileID: 2271524553011683939}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 4563902556236391989}
   - component: {fileID: 1349103434303215755}
   - component: {fileID: 371888722155697982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Guillotine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 5150547818231270074}
   - component: {fileID: 5582221369930219769}
   - component: {fileID: 707716659533596149}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 8431389661192999767}
   - component: {fileID: 7162087462563596067}
   - component: {fileID: 4377271101530275255}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

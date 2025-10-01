@@ -337,6 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Character>k__BackingField: {fileID: 643281548553802529}
+  _damagable_layer: 6
+  _undamagable_layer: 12
 --- !u!65 &7033414123513998810
 BoxCollider:
   m_ObjectHideFlags: 0

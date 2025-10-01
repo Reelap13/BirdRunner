@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 376981103760791738}
   - component: {fileID: 1495148518022521550}
   - component: {fileID: 1169164298007894409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4422712952442631208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3264382750246075982}
   - component: {fileID: 3797897858434349657}
   - component: {fileID: 900494012640245908}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FragileWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

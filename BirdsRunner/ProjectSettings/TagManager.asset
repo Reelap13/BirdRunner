@@ -16,8 +16,8 @@ TagManager:
   - Modes
   - Obstacle
   - Trigger
-  - 
-  - 
+  - MagneticField
+  - PlayerUndamageLayer
   - 
   - 
   - 

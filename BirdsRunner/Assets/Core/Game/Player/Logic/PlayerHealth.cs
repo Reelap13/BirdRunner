@@ -59,7 +59,9 @@ namespace Game.PlayerSide
         private IEnumerator InvincibilityPeriod()
         {
             isInvincible = true;
+            Controller.CharacterCreator.Character.DamageTaker.SetUndamageState();
             yield return new WaitForSeconds(invincibilityTime);
+            Controller.CharacterCreator.Character.DamageTaker.UnSetUndamageState();
             isInvincible = false;
         }
 

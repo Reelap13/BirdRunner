@@ -158,38 +158,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.data[2].Preset
-      value: 
-      objectReference: {fileID: 11400000, guid: 1b268e9d2277244458038130e736c318, type: 2}
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.data[3].Preset
-      value: 
-      objectReference: {fileID: 11400000, guid: f00736812bea38e4b9e66dde367de64e, type: 2}
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.data[4].Preset
-      value: 
-      objectReference: {fileID: 11400000, guid: f00736812bea38e4b9e66dde367de64e, type: 2}
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.data[2].Rotation
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.data[2].SpawnDistance
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.data[3].SpawnDistance
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319968788938036118, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
-      propertyPath: _obstacles.Array.data[4].SpawnDistance
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 5233771495284233231, guid: 5c6d42caa7c795a4dab8050e83dd5c23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
