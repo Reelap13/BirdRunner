@@ -16,7 +16,7 @@ namespace Game.Projectile
 
         private void FixedUpdate()
         {
-            if (!isServer && _rb != null)
+            if (!isServer || _rb == null)
                 return;
 
             _rb.MovePosition(transform.position + transform.forward * _speed * Time.fixedDeltaTime);
