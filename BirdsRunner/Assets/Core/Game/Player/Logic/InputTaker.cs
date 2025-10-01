@@ -1,6 +1,7 @@
 using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.PlayerSide
 {
@@ -11,9 +12,20 @@ namespace Game.PlayerSide
 
         private float2 _side_direction;
 
+        public override void OnStartAuthority()
+        {
+            InputManager.Instance.GetControls().Player.Attack.started += _ => CommandShoot();
+        }
+
         private void Update()
         {
             if (!isOwned) return;
+
+            TakeMovementInput();
+        }
+
+        private void TakeMovementInput()
+        {
             float h = InputManager.Instance.GetControls().Player.Move.ReadValue<Vector2>().x;
             float v = InputManager.Instance.GetControls().Player.Move.ReadValue<Vector2>().y;
 
@@ -25,15 +37,21 @@ namespace Game.PlayerSide
             }
         }
 
+        private void TakeShootingInput(InputAction.CallbackContext _)
+        {
+            CommandShoot();
+        }
+
         [Command]
         public void CommandUpdateSideDirection(float2 direction)
         {
             Controller.CharacterCreator.Character.Movement.UpdateSideDirection(direction);
         }
 
-        public void UpdateSideDirection(float2 direction)
+        [Command]
+        public void CommandShoot()
         {
-            Controller.CharacterCreator.Character.Movement.UpdateSideDirection(direction);
+            Controller.CharacterCreator.Character.Shoot.TryToFire();
         }
     }
 }

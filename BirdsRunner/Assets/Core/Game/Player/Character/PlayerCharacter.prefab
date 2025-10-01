@@ -110,7 +110,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 55
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 7199773602181450882}
   - component: {fileID: 106033329202543325}
   - component: {fileID: 7033414123513998810}
+  - component: {fileID: 8162297360268242350}
   m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -192,6 +193,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   <Movement>k__BackingField: {fileID: 581904319227086692}
+  <Shoot>k__BackingField: {fileID: 806561011558299378}
   <DamageTaker>k__BackingField: {fileID: 106033329202543325}
 --- !u!114 &581904319227086692
 MonoBehaviour:
@@ -302,10 +304,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  featherPrefab: {fileID: 5094550503937311523, guid: 772b822b9cc6e2841bd184a5b210b89e, type: 3}
+  _controller: {fileID: 643281548553802529}
+  featherPrefab: {fileID: 5829284418919725188, guid: 772b822b9cc6e2841bd184a5b210b89e, type: 3}
   shootingPoint: {fileID: 7303570918908505393}
-  shootingForce: 100
-  forceMode: 1
+  projectileSpeed: 20
 --- !u!114 &7199773602181450882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +358,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7, y: 0.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8162297360268242350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699713986078152283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5efc6f0a5e9984785f8e333d1cb3d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7774377852606636837
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ namespace Game.PlayerSide.Character
         [field: SerializeField]
         public CharacterMovement Movement { get; private set; }
         [field: SerializeField]
+        public PlayerShoot Shoot { get; private set; }
+        [field: SerializeField]
         public DamageTaker DamageTaker { get; private set; }
 
         public PlayerController PlayerController { get; private set; }
