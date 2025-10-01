@@ -5638,7 +5638,7 @@ PrefabInstance:
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[2].Preset
       value: 
-      objectReference: {fileID: 11400000, guid: e05aab21fea197e47828eb885e65894d, type: 2}
+      objectReference: {fileID: 11400000, guid: 0e3610c34e4fb6b4c982c8b7abc0c5a8, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[3].Preset
       value: 

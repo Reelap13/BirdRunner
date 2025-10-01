@@ -307,7 +307,7 @@ MonoBehaviour:
   _controller: {fileID: 643281548553802529}
   featherPrefab: {fileID: 5829284418919725188, guid: 772b822b9cc6e2841bd184a5b210b89e, type: 3}
   shootingPoint: {fileID: 7303570918908505393}
-  projectileSpeed: 20
+  projectileSpeed: 50
 --- !u!114 &7199773602181450882
 MonoBehaviour:
   m_ObjectHideFlags: 0
