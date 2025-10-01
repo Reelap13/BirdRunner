@@ -97,8 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b66cdacd3861ae4aa3063a1a05d2d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   target: {fileID: 0}
-  followSpeed: 5
+  followSpeed: 15
   distance: 2
   height: 1
   rotationDamping: 3

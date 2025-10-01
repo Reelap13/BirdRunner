@@ -100,4 +100,5 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  planeSpeed: 10
+  planeSpeed: 30
+  smoothingFactor: 0.1
