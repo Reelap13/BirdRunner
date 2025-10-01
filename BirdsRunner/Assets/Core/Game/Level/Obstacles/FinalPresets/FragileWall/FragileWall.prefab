@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 3264382750246075982}
   - component: {fileID: 3797897858434349657}
   - component: {fileID: 900494012640245908}
+  - component: {fileID: 1593455089196027725}
   m_Layer: 9
   m_Name: FragileWall
   m_TagString: Untagged
@@ -295,3 +296,37 @@ MonoBehaviour:
   _obstacle: {fileID: 3264382750246075982}
   _trigger: {fileID: 3797897858434349657}
   _model: {fileID: 1455958663482198309}
+--- !u!114 &1593455089196027725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847571542405497968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 6170501994810020557}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 1
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChangeCorrectionMultiplier: 2
+  useFixedUpdate: 0
+  rotationSensitivity: 0.01
+  positionPrecision: 0.01
+  scalePrecision: 0.01
