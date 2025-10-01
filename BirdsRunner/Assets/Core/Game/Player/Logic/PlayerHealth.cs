@@ -44,11 +44,9 @@ namespace Game.PlayerSide
 
             if (isInvincible) return;
 
-            Debug.Log("OnTakeDamage");
             _health -= damage;
             if (!IsAlive)
             {
-                Debug.Log("OnDie");
                 Controller.CharacterCreator.Character.State = CharacterState.DEAD;
                 OnDied.Invoke();
             }

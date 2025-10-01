@@ -5633,7 +5633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[2].Preset
@@ -5656,6 +5656,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b3c2cfbbc4f879949bc15dc72c00d2de, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _obstacles.Array.data[7].Preset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2119495929867c84787d233995c37ae3, type: 2}
+    - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[2].SpawnDistance
       value: 15
       objectReference: {fileID: 0}
@@ -5674,6 +5678,10 @@ PrefabInstance:
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[6].SpawnDistance
       value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _obstacles.Array.data[7].SpawnDistance
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8845669290059704617, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _assetId

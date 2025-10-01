@@ -32,7 +32,6 @@ namespace Game.Projectile
 
         private void DisposeProjectile()
         {
-            Debug.Log("ZZZ Dispose");
             SpawnEffectOnDestroy();
 
             Destroy(gameObject);

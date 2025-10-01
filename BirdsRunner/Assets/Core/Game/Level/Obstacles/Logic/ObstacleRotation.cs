@@ -12,13 +12,11 @@ namespace Game.Level.Obstacles
 
         protected override void ActivateBehaviour()
         {
-            Debug.Log("ZZZ Start");
             StartCoroutine(StartRotation());
         }
 
         private IEnumerator StartRotation()
         {
-            Debug.Log("ZZZ rotation");
             while (true)
             {
                 _body.localRotation *= Quaternion.Euler(_rotate_direction * _rotation_speed * Time.deltaTime);
