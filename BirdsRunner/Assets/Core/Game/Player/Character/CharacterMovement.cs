@@ -24,6 +24,7 @@ namespace Game.PlayerSide.Character
         [SerializeField] private float maxRopeDistance = 5f;
         [SerializeField] private float softRopeDistance = 4f;
         [SerializeField] private float ropeCorrectionFactor = 0.2f;
+        [SerializeField] private LineRenderer lineRenderer;
 
         [SerializeField] private float bigSize = 2f;
         [SerializeField] private float smallSize = 0.5f;
@@ -86,6 +87,10 @@ namespace Game.PlayerSide.Character
             if (!isServer) return;
             // Apply movement and rotation in FixedUpdate
             Move();
+            if (isRopeActive && otherPlayer != null)
+            {
+                RpcSetRope(transform.InverseTransformPoint(otherPlayer.position));
+            }
         }
 
         private void CalculateMovement()
@@ -222,12 +227,20 @@ namespace Game.PlayerSide.Character
         {
             isRopeActive = true;
             otherPlayer = other;
+            RpcSetRope(transform.InverseTransformPoint(otherPlayer.position));
+        }
+
+        [TargetRpc]
+        private void RpcSetRope(Vector3 position)
+        {
+            lineRenderer.SetPosition(1, position);
         }
 
         public void DiactivateRope()
         {
             isRopeActive = false;
             otherPlayer = null;
+            RpcSetRope(new(0, 0, 0));
         }
 
         public void ActivateStickyFeathers(bool isVertical, CharacterMovement other)

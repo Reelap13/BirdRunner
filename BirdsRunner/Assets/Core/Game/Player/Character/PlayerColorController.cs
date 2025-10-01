@@ -47,6 +47,7 @@ namespace Game.PlayerSide.Character
             playerColor = newColor;
         }
 
+
         public void RequestColorChange(Color newColor)
         {
             CmdChangeColor(newColor);
