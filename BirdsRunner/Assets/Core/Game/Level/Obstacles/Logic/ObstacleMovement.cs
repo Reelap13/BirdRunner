@@ -9,6 +9,7 @@ namespace Game.Level.Obstacles
     {
         [SerializeField] private Transform _body;
         [SerializeField] private float _speed = 2f;
+        [SerializeField] private float _point_change_delay = 0f;
         [SerializeField] private List<Transform> _points;
         [SerializeField] private bool _is_looped = false;
         [SerializeField] private bool _spawn_on_first_point = true;
@@ -51,6 +52,9 @@ namespace Game.Level.Obstacles
                     yield return null;
                 }
                 ++index;
+
+                if (_point_change_delay > LIMIT)
+                    yield return new WaitForSeconds(_point_change_delay);
             }
         }
     }
