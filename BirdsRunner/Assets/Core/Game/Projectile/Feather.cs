@@ -1,54 +1,54 @@
 using UnityEngine;
 using Mirror;
 
-public class Feather : NetworkBehaviour
+namespace Game.Projectile
 {
-    [SerializeField] private Rigidbody projectileRigidbody;
-    [SerializeField] private float projectileLifetime = 1f;
-
-    private bool isDisposed;
-
-    [SerializeField] private bool spawnEffectOnDestroy = true;
-    [SerializeField] private ParticleSystem effectOnDestroyPrefab;
-    [SerializeField] private float effectOnDestroyLifetime = 2f;
-
-    public Rigidbody Rigidbody => projectileRigidbody;
-
-    private void Start()
+    public class Feather : NetworkBehaviour
     {
-        if (!isServer) return;
-        Invoke(nameof(DisposeProjectile), projectileLifetime);
-    }
+        [SerializeField] private Rigidbody projectileRigidbody;
+        [SerializeField] private float projectileLifetime = 1f;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!isServer) return;
-        if (isDisposed) return;
+        private bool isDisposed;
 
+        [SerializeField] private bool spawnEffectOnDestroy = true;
+        [SerializeField] private ParticleSystem effectOnDestroyPrefab;
+        [SerializeField] private float effectOnDestroyLifetime = 2f;
 
-        DisposeProjectile();
-    }
+        public Rigidbody Rigidbody => projectileRigidbody;
 
+        private void Start()
+        {
+            if (!isServer) return;
+            Invoke(nameof(DisposeProjectile), projectileLifetime);
+        }
 
-    private void DisposeProjectile()
-    {
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (!isServer) return;
+            if (isDisposed) return;
 
-        SpawnEffectOnDestroy();
+            DisposeProjectile();
+        }
 
-        Destroy(gameObject);
+        private void DisposeProjectile()
+        {
+            SpawnEffectOnDestroy();
 
-        NetworkServer.Destroy(gameObject);
+            Destroy(gameObject);
 
-        isDisposed = true;
-    }
+            NetworkServer.Destroy(gameObject);
 
-    private void SpawnEffectOnDestroy()
-    {
-        if (spawnEffectOnDestroy == false) return;
+            isDisposed = true;
+        }
 
-        var effect = Instantiate(effectOnDestroyPrefab, transform.position, Quaternion.identity);
-        effect.Play();
+        private void SpawnEffectOnDestroy()
+        {
+            if (spawnEffectOnDestroy == false) return;
 
-        Destroy(effect.gameObject, effectOnDestroyLifetime);
+            var effect = Instantiate(effectOnDestroyPrefab, transform.position, Quaternion.identity);
+            effect.Play();
+
+            Destroy(effect.gameObject, effectOnDestroyLifetime);
+        }
     }
 }

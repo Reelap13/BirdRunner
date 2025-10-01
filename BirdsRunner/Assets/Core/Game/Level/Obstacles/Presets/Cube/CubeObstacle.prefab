@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3225581465620129270}
   - component: {fileID: 5703575828507900574}
   - component: {fileID: 3278896279713285639}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8526663091309522359}
   - component: {fileID: 8199079113280023177}
   - component: {fileID: 1180420025669149415}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CubeObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

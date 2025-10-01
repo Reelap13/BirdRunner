@@ -11,6 +11,8 @@ namespace Game.PlayerSide.Character
 
         [field: SerializeField]
         public PlayerCharacterController Character { get; private set; }
+        [SerializeField] private int _damagable_layer;
+        [SerializeField] private int _undamagable_layer;
 
         public void TakeDamage(int damage = 1)
         {
@@ -18,5 +20,15 @@ namespace Game.PlayerSide.Character
                 OnDamageTaker.Invoke(damage);
         }
 
+
+        public void SetUndamageState()
+        {
+            gameObject.layer = _undamagable_layer;
+        }
+
+        public void UnSetUndamageState()
+        {
+            gameObject.layer = _damagable_layer;
+        }
     }
 }

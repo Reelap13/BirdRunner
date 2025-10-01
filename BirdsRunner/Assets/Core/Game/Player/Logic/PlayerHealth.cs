@@ -44,11 +44,9 @@ namespace Game.PlayerSide
 
             if (isInvincible) return;
 
-            Debug.Log("OnTakeDamage");
             _health -= damage;
             if (!IsAlive)
             {
-                Debug.Log("OnDie");
                 Controller.CharacterCreator.Character.State = CharacterState.DEAD;
                 OnDied.Invoke();
             }
@@ -61,7 +59,9 @@ namespace Game.PlayerSide
         private IEnumerator InvincibilityPeriod()
         {
             isInvincible = true;
+            Controller.CharacterCreator.Character.DamageTaker.SetUndamageState();
             yield return new WaitForSeconds(invincibilityTime);
+            Controller.CharacterCreator.Character.DamageTaker.UnSetUndamageState();
             isInvincible = false;
         }
 

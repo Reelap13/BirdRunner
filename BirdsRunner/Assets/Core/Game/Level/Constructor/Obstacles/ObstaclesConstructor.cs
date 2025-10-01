@@ -27,7 +27,7 @@ namespace Game.Level.Constructor.Obstacles
             CreateObstacles(is_editor);
         }
 
-        private void DestroySpawnedObjects(bool is_editor)
+        public void DestroySpawnedObjects(bool is_editor)
         {
             for (int i = transform.childCount - 1; i >= 0; i--)
             {

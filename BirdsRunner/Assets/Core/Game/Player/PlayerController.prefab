@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Controller>k__BackingField: {fileID: 4946357414854406475}
-  _start_health: 1
+  _start_health: 2
   invincibilityTime: 1
 --- !u!1 &3644195291126731272
 GameObject:
@@ -114,6 +114,53 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   <Controller>k__BackingField: {fileID: 4946357414854406475}
+--- !u!1 &4707113463511008572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4377375098534695255}
+  - component: {fileID: 7717100887706371908}
+  m_Layer: 0
+  m_Name: FeathersInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4377375098534695255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4707113463511008572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5810514881587896004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7717100887706371908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4707113463511008572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00df1d8d29457347988ed22f09a502e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Controller>k__BackingField: {fileID: 4946357414854406475}
+  _max_amount: 3
+  _restoring_time: 2
 --- !u!1 &5511258989546978311
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +194,7 @@ Transform:
   m_Children:
   - {fileID: 6492747563132455381}
   - {fileID: 2910147843800897848}
+  - {fileID: 4377375098534695255}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7652848125250439885
@@ -183,3 +231,4 @@ MonoBehaviour:
   syncInterval: 0
   <CharacterCreator>k__BackingField: {fileID: 8120785879924697904}
   <Health>k__BackingField: {fileID: 8560934612436754054}
+  <Feathers>k__BackingField: {fileID: 7717100887706371908}

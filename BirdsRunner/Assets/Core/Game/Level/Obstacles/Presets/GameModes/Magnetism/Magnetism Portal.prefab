@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4005452240555697820}
   - component: {fileID: 8773472955667376358}
   - component: {fileID: -70284213872513041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Magnetism Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

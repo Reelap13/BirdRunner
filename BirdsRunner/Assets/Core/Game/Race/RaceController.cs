@@ -5,14 +5,15 @@ namespace Game.Race
 {
     public class RaceController : GameSystem
     {
-        [SerializeField] private RaceEndTracker _tracker;
+        [field: SerializeField] 
+        public RaceEndTracker Tracker { get; private set; }
 
         protected override void Initialize()
         {
             Game.Cutscene.OnCutsceneFinished.AddListener(StartGame);
             Game.Level.OnReloaded.AddListener(StartGame);
-            _tracker.OnWinned.AddListener(ProcessWin);
-            _tracker.OnLosed.AddListener(ProcessLose);
+            Tracker.OnWinned.AddListener(ProcessWin);
+            Tracker.OnLosed.AddListener(ProcessLose);
         }
 
         private void StartGame()
@@ -33,7 +34,7 @@ namespace Game.Race
                 player.CharacterCreator.CreateCharacter(start_point);
                 player.Health.RestoreHealth();
             }
-            _tracker.StartTracking();
+            Tracker.StartTracking();
         }
 
         private void ProcessWin()
@@ -51,7 +52,7 @@ namespace Game.Race
 
         private void ProcessRaceEnd()
         {
-            _tracker.StopTracking();
+            Tracker.StopTracking();
         }
     }
 }

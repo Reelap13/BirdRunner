@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb438b2bc0fe08f45b88846e6a1b6dd5, type: 3}
-  m_Name: RectangleObstacle
+  m_Name: Teleport
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 4301209791396772807, guid: 56c5200414411594f9b0a17800bd13da, type: 3}
+  Prefab: {fileID: 638648610660534777, guid: d1f62a219941265488505dad7717c499, type: 3}

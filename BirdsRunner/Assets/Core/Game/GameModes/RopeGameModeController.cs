@@ -30,7 +30,7 @@ namespace Game.GameMode
         {
             foreach (var player in controller.Game.Players.Players)
             {
-                player.GetComponent<CharacterMovement>().DiactivateRope();
+                player.CharacterCreator.Character.GetComponent<CharacterMovement>().DiactivateRope();
             }
         }
     }

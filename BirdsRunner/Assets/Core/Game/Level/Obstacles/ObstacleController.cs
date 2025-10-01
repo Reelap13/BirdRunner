@@ -24,5 +24,14 @@ namespace Game.Level.Obstacles
             OnInitialized.Invoke();
         }
 
+        public void Evaluate(float distance_offset, out Vector3 position, out Quaternion rotation)
+        { 
+            float t = math.clamp(_distance - distance_offset, 0, _total_length) / _total_length;
+            SplineUtility.Evaluate(_container.Spline, t,
+                out float3 pos, out float3 tangent, out float3 up);
+
+            position = pos;
+            rotation = Quaternion.LookRotation(tangent, up);
+        }
     }
 }

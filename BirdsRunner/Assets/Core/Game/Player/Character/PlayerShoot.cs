@@ -1,68 +1,43 @@
 using UnityEngine;
 using Mirror;
 using System.Collections;
+using Game.Projectile;
 
 namespace Game.PlayerSide.Character
 {
 
     public class PlayerShoot : NetworkBehaviour
     {
-        [SerializeField] private GameObject featherPrefab;
+        [SerializeField] private PlayerCharacterController _controller;
+        [SerializeField] private ProjectileController featherPrefab;
         [SerializeField] private Transform shootingPoint;
-        [SerializeField] private float shootingForce;
-        [SerializeField] private ForceMode forceMode;
+        [SerializeField] private float projectileSpeed = 10f;
 
         private float coolDown = 0.2f;
-        private float readyBufferTime = 0.1f;
+        private bool isShooting = false;
 
-        private float lastClickTime = 0f;
-
-        private bool isShooting;
-
-        public void Start()
+        public void TryToFire()
         {
-            if (!isOwned) return;
-            InputManager.Instance.GetControls().Player.Attack.started += _ => HandleFire();
-        }
-
-        public void HandleFire()
-        {
-            if (!isShooting || Time.time - lastClickTime <= readyBufferTime)
-            {
+            if (!isShooting)
                 Fire();
-            }
-            else
-            {
-                lastClickTime = Time.time;
-            }
         }
 
         private void Fire()
         {
-            isShooting = true;
-            CmdFire();
-            StartCoroutine(CoolDownCoroutine());
-        }
+            if (!_controller.PlayerController.Feathers.TryToSpendFeather())
+                return;
 
-        [Command]
-        private void CmdFire()
-        {
-            GameObject feather = NetworkUtils.NetworkInstantiate(featherPrefab, shootingPoint);
-            feather.GetComponent<Rigidbody>().AddForce(transform.forward * shootingForce, forceMode);
+            isShooting = true;
+            ProjectileController feather = NetworkUtils.NetworkInstantiate(featherPrefab, shootingPoint);
+            feather.Initialize(projectileSpeed);
+            StartCoroutine(CoolDownCoroutine());
         }
 
         private IEnumerator CoolDownCoroutine()
         {
             yield return new WaitForSeconds(coolDown);
             isShooting = false;
-            lastClickTime = 0f;
         }
-
-        public bool IsShooting()
-        {
-            return isShooting;
-        }
-        public float CoolDown { get { return coolDown; } }
 
     }
 }

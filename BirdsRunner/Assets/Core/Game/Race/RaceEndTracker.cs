@@ -26,7 +26,7 @@ namespace Game.Race
             OnLosed.Invoke();
         }
 
-        private void RegisterWin()
+        public void RegisterWin()
         {
             OnWinned.Invoke();
         }

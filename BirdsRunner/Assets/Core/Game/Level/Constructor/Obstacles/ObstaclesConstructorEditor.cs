@@ -18,6 +18,10 @@ namespace Game.Level.Constructor.Obstacles
             {
                 gen.Generate(true);
             }
+            if (GUILayout.Button("Destroy Obstacles"))
+            {
+                gen.DestroySpawnedObjects(true);
+            }
         }
     }
 }

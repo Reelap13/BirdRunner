@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Modes
+  - Obstacle
+  - Trigger
+  - MagneticField
+  - PlayerUndamageLayer
   - 
   - 
   - 
