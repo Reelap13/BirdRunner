@@ -26,6 +26,11 @@ namespace Game.PlayerCamera
         private Vector3 _desiredPosition;
         private Quaternion _desiredRotation;
 
+        public override void OnStartClient()
+        {
+            Camera.main.GetComponent<CameraDaata>().SetActiveEffects(true);
+        }
+
         void FixedUpdate()
         {
             if (!isServer) return;
