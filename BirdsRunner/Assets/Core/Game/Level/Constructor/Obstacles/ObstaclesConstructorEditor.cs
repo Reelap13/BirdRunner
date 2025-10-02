@@ -26,7 +26,6 @@ namespace Game.Level.Constructor.Obstacles
             {
                 gen.UpdateObstaclesFromChildren();
             }
-
         }
     }
 }

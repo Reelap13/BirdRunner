@@ -68,6 +68,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  <Preset>k__BackingField: {fileID: 11400000, guid: 6b47bd5434f88d641bf3e0259ecb77c8, type: 2}
 --- !u!114 &2475583748798789153
 MonoBehaviour:
   m_ObjectHideFlags: 0
