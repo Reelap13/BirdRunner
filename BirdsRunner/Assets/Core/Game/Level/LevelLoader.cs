@@ -17,6 +17,8 @@ namespace Game.Level
 
         private LevelController _level;
 
+        public int LevelId => Game.LevelId;
+
         protected override void Initialize()
         {
             GameController.Instance.OnStarted.AddListener(LoadLevel);
@@ -63,8 +65,7 @@ namespace Game.Level
                 if (level_id == preset.LevelId) return preset;
             return null;
         }
-
-        private int LevelId = 0;
+        
         public LevelController Level { get { return _level; } }
     }
 }
