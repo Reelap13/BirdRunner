@@ -75,6 +75,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5233771495284233231}
     m_Modifications:
+    - target: {fileID: 2399676960835093828, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _ringSpacing
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2614586502448572517, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _assetId
       value: 3834675284

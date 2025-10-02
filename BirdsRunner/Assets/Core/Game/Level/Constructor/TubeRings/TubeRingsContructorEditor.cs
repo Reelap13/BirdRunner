@@ -17,6 +17,10 @@ namespace Game.Level.Constructor.TubeRings
             {
                 gen.GenerateRings();
             }
+            if (GUILayout.Button("Destroy Tube"))
+            {
+                gen.DestroyRings(true);
+            }
         }
     }
 }

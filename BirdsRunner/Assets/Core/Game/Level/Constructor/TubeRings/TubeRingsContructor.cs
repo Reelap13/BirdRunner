@@ -1,4 +1,5 @@
 using Game.Level.Constructor.Tube;
+using Mirror;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -59,18 +60,14 @@ namespace Game.Level.Constructor.TubeRings
             }
         }
 
-        public void DestroyRings(bool isEditor = false)
+        public void DestroyRings(bool is_editor)
         {
             for (int i = transform.childCount - 1; i >= 0; i--)
             {
-#if UNITY_EDITOR
-                if (isEditor)
-                    DestroyImmediate(transform.GetChild(i).gameObject);
-                else
-                    Destroy(transform.GetChild(i).gameObject);
-#else
-                Destroy(transform.GetChild(i).gameObject);
-#endif
+                var child = transform.GetChild(i).gameObject;
+                if (is_editor)
+                    DestroyImmediate(child);
+                else Destroy(child);
             }
             _spawnedRings.Clear();
         }

@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 2900626512214930874}
-  _ringPrefab: {fileID: 0}
-  _ringSpacing: 10
+  _ringPrefab: {fileID: 5397491366099345258, guid: 80523a0e57c300344ae9a64319cd28cf, type: 3}
+  _ringSpacing: 30
   _startOffset: 0
   _generateInEditor: 1
 --- !u!1 &3196537979102394410
