@@ -1385,6 +1385,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8468175509840294370, guid: ac5a45f79446f704280d82b8fdd5a18c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468175509840294370, guid: ac5a45f79446f704280d82b8fdd5a18c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1188
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

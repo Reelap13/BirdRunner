@@ -26,6 +26,7 @@ namespace Scripts.UI.Scene
             while (elapsed < 1)
             {
                 elapsed += Time.deltaTime / _fade_speed;
+                _elapsed = elapsed;
                 color.a = Mathf.Clamp01(elapsed);
                 _fade_image.color = color;
                 yield return null;
@@ -41,7 +42,8 @@ namespace Scripts.UI.Scene
             while (elapsed > 0)
             {
                 elapsed -= Time.deltaTime / _fade_speed;
-                color.a = 1f - Mathf.Clamp01(elapsed);
+                _elapsed = elapsed;
+                color.a = Mathf.Clamp01(elapsed);
                 _fade_image.color = color;
                 yield return null;
             }

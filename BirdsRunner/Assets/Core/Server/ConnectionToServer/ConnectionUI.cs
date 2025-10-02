@@ -1,6 +1,7 @@
 using System.Collections;
 using Scripts.UI.Scene;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,8 @@ public class ConnectionUI : MonoBehaviour
 
     private void Awake()
     {
+        _connector.OnError.AddListener(FadeIn);
+
         _start_new_game.onClick.AddListener(StartNewGame);
         _continue.onClick.AddListener(Continue);
         _connection.onClick.AddListener(Connect);
@@ -39,6 +42,17 @@ public class ConnectionUI : MonoBehaviour
             colors.disabledColor = new Color(colors.disabledColor.r, colors.disabledColor.g, colors.disabledColor.b, 0.3f);
             _continue.colors = colors;
         }
+    }
+
+    private void FadeIn()
+    {
+        IEnumerator Start()
+        {
+            yield return SceneUI.Instance.Fader.FadeIn();
+        }
+
+        StopAllCoroutines();
+        StartCoroutine(Start());
     }
 
     private void StartNewGame()

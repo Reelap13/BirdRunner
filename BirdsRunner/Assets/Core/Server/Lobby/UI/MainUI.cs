@@ -1,3 +1,4 @@
+using Scripts.UI.Scene;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ namespace Server.Lobby.UI
         {
             _start_game_button.onClick.AddListener(StartGame);
             _tutorial_toggle.onValueChanged.AddListener(UpdateTutorialState);
+            StartCoroutine(SceneUI.Instance.Fader.FadeIn());
         }
 
         public void UpdateUI(LobbyData data, LobbyPlayerData player)

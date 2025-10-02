@@ -1,16 +1,22 @@
+using System;
 using Mirror;
+using Server.ServerSide;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ConnectorToServer : MonoBehaviour
 {
-    [SerializeField] private NetworkManager _manager;
+    [NonSerialized] public UnityEvent OnError = new();
+
+    [SerializeField] private NetworkManagerController _manager;
 
     private void Awake()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        _manager.OnClientGettedError.AddListener(() => OnError.Invoke());
     }
 
     public void CreateHostConnection()
