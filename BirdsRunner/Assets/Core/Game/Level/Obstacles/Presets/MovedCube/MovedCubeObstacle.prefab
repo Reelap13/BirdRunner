@@ -228,6 +228,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  <Preset>k__BackingField: {fileID: 11400000, guid: b3c2cfbbc4f879949bc15dc72c00d2de, type: 2}
 --- !u!114 &7548903741212207955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   _trigger: {fileID: 7548903741212207955}
   _body: {fileID: 960499399926990094}
   _speed: 2
+  _point_change_delay: 0
   _points:
   - {fileID: 859951080995816710}
   - {fileID: 7516229752415185689}

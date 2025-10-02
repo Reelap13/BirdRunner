@@ -11,6 +11,7 @@ namespace Server.Lobby
         [SerializeField] private float _hover_amplitude = 0.2f;
         [SerializeField] private float _hover_frequency = 2f;
         [SerializeField] private float _pitch_amplitude = 1f;
+        
 
         private LobbyPlayerData _player;
         private int _way_point_id = 0;

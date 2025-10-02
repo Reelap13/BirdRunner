@@ -26,6 +26,7 @@ namespace Server.Lobby.UI
 
         public void UpdateReadiness(bool rediness) => LobbyConnector.Local.CommandUpdateReadinessState(rediness);
         public void UpdateTutorial(bool tutorial) => LobbyConnector.Local.CommandUpdateTutorialState(tutorial);
+        public void UpdateColor(Color color_id) => LobbyConnector.Local.CommandUpdateColor(color_id);
         public void StartGame() => LobbyConnector.Local.CommandStartGame();
     }
 }

@@ -127,12 +127,11 @@ namespace Game.Level.Constructor.Obstacles
             if (is_editor)
             {
                 obstacle = Instantiate(preset.Prefab, pos, rot, transform);
-                obstacle.EditorInitialize(preset);
             }
             else
             {
                 obstacle = NetworkUtils.NetworkInstantiate(preset.Prefab, pos, rot, transform);
-                obstacle.Initialize(_container, preset, total_length, distance);
+                obstacle.Initialize(_container, total_length, distance);
             }
             return obstacle;
         }

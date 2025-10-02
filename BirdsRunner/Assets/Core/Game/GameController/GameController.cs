@@ -25,11 +25,20 @@ namespace Game
         [field: SerializeField]
         public GameModesController GameModes { get; private set; }
 
-        public void Initialize() => OnInitialized.Invoke();
+        private string SAVE_KEY = "LEVEL_ID";
+        public int LevelId { get; private set; }
+
+        public void Initialize()
+        {
+            LevelId = PlayerPrefs.GetInt(SAVE_KEY);
+            OnInitialized.Invoke();
+        }
         public void StartGame() => OnStarted.Invoke();
         public void RestartGame() => OnRestarted.Invoke();
         public void StartNextLevel()
         {
+            ++LevelId;
+            PlayerPrefs.SetInt(SAVE_KEY, LevelId);
             StartGame();
         }
     }

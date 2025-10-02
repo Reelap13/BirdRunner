@@ -2495,7 +2495,7 @@ MonoBehaviour:
   syncInterval: 0
   <Character>k__BackingField: {fileID: 643281548553802529}
   _forward_speed: 10
-  _side_speed: 5
+  _side_speed: 7
   _rb: {fileID: 3279447026722735806}
   model: {fileID: 6838691161164299287}
   rotationSpeed: 50

@@ -17,6 +17,7 @@ namespace Settings
             InitializeSettings();
             LoadSettings();
             InitializeApplicators();
+            DontDestroyOnLoad(gameObject);
         }
 
         private void InitializeSettings()

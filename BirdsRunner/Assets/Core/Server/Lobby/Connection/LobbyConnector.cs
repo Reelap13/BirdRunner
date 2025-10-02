@@ -50,6 +50,9 @@ namespace Server.Lobby
         public void CommandUpdateTutorialState(bool tutorial) => _controller.UpdateTutorialState(_player_data, tutorial);
 
         [Command]
+        public void CommandUpdateColor(Color color) => _controller.UpdateColor(_player_data, color);
+
+        [Command]
         public void CommandUpdateReadinessState(bool readiness) => _controller.UpdateReadinessState(_player_data, readiness);
     }
 }

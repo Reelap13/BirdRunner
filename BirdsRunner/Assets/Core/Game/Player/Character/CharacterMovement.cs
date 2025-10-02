@@ -187,15 +187,15 @@ namespace Game.PlayerSide.Character
             _rb.MoveRotation(newRotation);
 
             // Smoothly move towards the constrained position
-            if(Vector3.Distance(_targetPosition, plane.transform.position) > 3f)
-            {
-                Vector3 offset = (_targetPosition - plane.transform.position).normalized;
-                _targetPosition = plane.transform.position + offset * 3f;
-            }
             Vector3 newPosition = Vector3.Lerp(_rb.position, _targetPosition, constraintSmoothingFactor);
+            newPosition += direction * _side_speed * currentSpeedMultiplier * Time.fixedDeltaTime;
+            if (Vector3.Distance(newPosition, plane.transform.position) > 3f)
+            {
+                Vector3 offset = (newPosition - plane.transform.position).normalized;
+                newPosition = plane.transform.position + offset * 3f;
+            }
 
-
-            _rb.MovePosition(newPosition + direction * _side_speed * currentSpeedMultiplier * Time.fixedDeltaTime);
+            _rb.MovePosition(newPosition);
             model.localRotation = Quaternion.Euler(_currentPitchAngle, 0, _currentBankAngle);
 
         }

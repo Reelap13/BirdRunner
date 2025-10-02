@@ -41,6 +41,15 @@ namespace Server.Lobby
             OnTutorialUpdated.Invoke();
         }
 
+        public void UpdateColor(LobbyPlayerData data, Color color)
+        {
+            if (data.ConnectionType != ConnectionType.HOST)
+                return;
+
+            data.Color = color;
+            OnTutorialUpdated.Invoke();
+        }
+
         public void StartGame(LobbyPlayerData data)
         {
             if (data.ConnectionType != ConnectionType.HOST)
