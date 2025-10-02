@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Line
   m_EditorClassIdentifier: 
   Length: 2000
-  Steps: 2000
+  Steps: 400
