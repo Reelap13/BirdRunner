@@ -2,12 +2,14 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.Splines;
 using Unity.Mathematics;
+using Game.Sound;
 
 
 public class MovingPlaneController : NetworkBehaviour
 {
     [SerializeField] private float planeSpeed = 10f;
     [SerializeField] private float smoothingFactor = 0.1f; // Adjust in Inspector
+    [SerializeField] private SoundPlayer music;
 
     private SplineContainer _container;
     private float currentDistance;
@@ -59,5 +61,16 @@ public class MovingPlaneController : NetworkBehaviour
     public void SetSpline(SplineContainer container)
     {
         _container = container;
+    }
+
+    public void SetMusic(AudioClip clip)
+    {
+        music.SetMusic(clip);
+    }
+
+    [ClientRpc]
+    public void PlayMusic()
+    {
+        music.PlaySound(true);
     }
 }

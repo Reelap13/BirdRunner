@@ -1,6 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 using Mirror;
+using Game.Sound;
 
 namespace Game.PlayerSide.Character
 {
@@ -30,6 +31,8 @@ namespace Game.PlayerSide.Character
         [SerializeField] private float smallSize = 0.5f;
         [SerializeField] private float bigSpeedMultiplier = 2f;
         [SerializeField] private float smallSpeedMultiplier = 0.5f;
+
+        [SerializeField] private SoundPlayer sound;
 
         private float _currentBankAngle = 0f;
         private float _bankVelocity = 0f;
@@ -68,6 +71,7 @@ namespace Game.PlayerSide.Character
             plane = FindFirstObjectByType<MovingPlaneController>();
             _targetPosition = transform.position;
             _targetRotation = transform.rotation;
+            PlaySound();
         }
 
         private void Update()
@@ -91,6 +95,12 @@ namespace Game.PlayerSide.Character
             {
                 RpcSetRope(transform.InverseTransformPoint(otherPlayer.position));
             }
+        }
+
+        [TargetRpc]
+        private void PlaySound()
+        {
+            sound.PlaySound(true);
         }
 
         private void CalculateMovement()

@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: _assetId
       value: 3834675284
       objectReference: {fileID: 0}
+    - target: {fileID: 2717106819709046160, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 150fd6c3bd8c4894293c73ac091f4129, type: 3}
     - target: {fileID: 2900626512214930874, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.size
       value: 400

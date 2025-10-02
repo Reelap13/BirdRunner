@@ -2,12 +2,14 @@ using System;
 using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
+using Game.Sound;
 
 namespace Game.PlayerSide.Character
 {
     public class DamageTaker : MonoBehaviour
     {
         [NonSerialized] public UnityEvent<int> OnDamageTaker = new();
+        [SerializeField] private SoundPlayer sound;
 
         [field: SerializeField]
         public PlayerCharacterController Character { get; private set; }
@@ -17,7 +19,10 @@ namespace Game.PlayerSide.Character
         public void TakeDamage(int damage = 1)
         {
             if (Character.State != CharacterState.DEAD)
+            {
+                sound.PlaySound(true);
                 OnDamageTaker.Invoke(damage);
+            }
         }
 
 

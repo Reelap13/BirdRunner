@@ -4,6 +4,7 @@ using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
+using Game.Sound;
 
 namespace Game.Level.Constructor.Plane
 {
@@ -11,6 +12,7 @@ namespace Game.Level.Constructor.Plane
     {
         [SerializeField] private SplineContainer _container;
         [SerializeField] private GameObject planePrefab;
+        [SerializeField] private AudioClip music;
 
 
         public void Generate()
@@ -28,6 +30,10 @@ namespace Game.Level.Constructor.Plane
             Quaternion rot = Quaternion.LookRotation(tangent, up);
 
             GameObject newPlane = NetworkUtils.NetworkInstantiate(planePrefab, pos, rot, null);
+
+            var planeMusic = newPlane.GetComponent<MovingPlaneController>();
+            planeMusic.SetMusic(music);
+            planeMusic.PlayMusic();
 
             newPlane.GetComponent<MovingPlaneController>().SetSpline(_container);
 
