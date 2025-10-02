@@ -179,7 +179,7 @@ namespace Game.PlayerSide.Character
             // Smoothly move towards the constrained position
             if(Vector3.Distance(_targetPosition, plane.transform.position) > 3f)
             {
-                Vector3 offset = (plane.transform.position - _targetPosition).normalized;
+                Vector3 offset = (_targetPosition - plane.transform.position).normalized;
                 _targetPosition = plane.transform.position + offset * 3f;
             }
             Vector3 newPosition = Vector3.Lerp(_rb.position, _targetPosition, constraintSmoothingFactor);
