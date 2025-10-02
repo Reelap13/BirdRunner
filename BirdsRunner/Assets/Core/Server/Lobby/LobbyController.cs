@@ -48,8 +48,10 @@ namespace Server.Lobby
 
         public bool IsReadyToStart()
         {
-            return Data.IsReady() &&
+            /*return Data.IsReady() &&
                 _players_number_to_start.x <= Data.Players.Count &&
+                Data.Players.Count <= _players_number_to_start.y;*/
+            return _players_number_to_start.x <= Data.Players.Count &&
                 Data.Players.Count <= _players_number_to_start.y;
         }
     }

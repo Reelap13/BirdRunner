@@ -6,7 +6,7 @@ namespace Server.Lobby.UI
     public class LobbyUIController : MonoBehaviour
     {
         [SerializeField] private MainUI _main_ui;
-        [SerializeField] private PlayerCardsController _player_cards;
+        [SerializeField] private VisualPlayersController _player_cards;
 
         private void Start()
         {
