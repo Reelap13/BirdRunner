@@ -15653,7 +15653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[0].Preset
@@ -15670,7 +15670,15 @@ PrefabInstance:
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[3].Preset
       value: 
-      objectReference: {fileID: 11400000, guid: e0970cb076be24447abc37aa3a2a7841, type: 2}
+      objectReference: {fileID: 11400000, guid: ea3fcbeea56c0e94fa24b87696cabf83, type: 2}
+    - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _obstacles.Array.data[4].Preset
+      value: 
+      objectReference: {fileID: 11400000, guid: d3487731276c04e45aa04fa9a19d0f08, type: 2}
+    - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _obstacles.Array.data[5].Preset
+      value: 
+      objectReference: {fileID: 11400000, guid: a578a8dbff24b7a42b1e3e12d06f7ce3, type: 2}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[0].SpawnDistance
       value: 20
@@ -15685,7 +15693,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _obstacles.Array.data[3].SpawnDistance
-      value: 70
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _obstacles.Array.data[4].SpawnDistance
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945553539796144993, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
+      propertyPath: _obstacles.Array.data[5].SpawnDistance
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8845669290059704617, guid: 729ca449ce86a3b4b9166ee057267c83, type: 3}
       propertyPath: _assetId
