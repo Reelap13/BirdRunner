@@ -14,7 +14,6 @@ namespace Server.Lobby.UI
 
         [SerializeField] private Button _start_game_button;
         [SerializeField] private GameObject _not_enough_players;
-        [SerializeField] private Button _change_color;
         [SerializeField] private Button _exit_to_menu;
 
         [SerializeField] private bool _block_solo_starting = true;
@@ -24,7 +23,6 @@ namespace Server.Lobby.UI
         private void Awake()
         {
             _start_game_button.onClick.AddListener(StartGame);
-            _change_color.onClick.AddListener(ChangeColor);
             _exit_to_menu.onClick.AddListener(ExitToMenu);
             StartCoroutine(SceneUI.Instance.Fader.FadeIn());
 

@@ -38,6 +38,8 @@ namespace Game
         public void StartNextLevel()
         {
             ++LevelId;
+            if (LevelId == 4)
+                LevelId = 1;
             PlayerPrefs.SetInt(SAVE_KEY, LevelId);
             StartGame();
         }
