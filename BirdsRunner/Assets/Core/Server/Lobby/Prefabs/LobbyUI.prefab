@@ -498,9 +498,8 @@ MonoBehaviour:
   _camera_point: {fileID: 5321829129850526505}
   _start_game_button: {fileID: 2935137083760902099}
   _not_enough_players: {fileID: 5358628162877919619}
-  _change_color: {fileID: 0}
   _exit_to_menu: {fileID: 5532877281365173290}
-  _block_solo_starting: 0
+  _block_solo_starting: 1
 --- !u!1 &4986767007975461812
 GameObject:
   m_ObjectHideFlags: 0
