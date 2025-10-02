@@ -22,6 +22,11 @@ namespace Game.Level.Constructor.Obstacles
             {
                 gen.DestroySpawnedObjects(true);
             }
+            if (GUILayout.Button("Update From Scene"))
+            {
+                gen.UpdateObstaclesFromChildren();
+            }
+
         }
     }
 }

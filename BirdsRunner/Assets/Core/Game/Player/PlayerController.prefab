@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Controller>k__BackingField: {fileID: 4946357414854406475}
-  _start_health: 2
+  _start_health: 3
   invincibilityTime: 1
 --- !u!1 &3644195291126731272
 GameObject:

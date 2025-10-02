@@ -8,6 +8,7 @@ using UnityEngine.Assertions.Must;
 using UnityEngine.Splines;
 using UnityEngine.Events;
 using System;
+using UnityEditor;
 
 namespace Game.Level.Constructor.Obstacles
 {
@@ -71,14 +72,67 @@ namespace Game.Level.Constructor.Obstacles
             }
         }
 
+
+        public void UpdateObstaclesFromChildren()
+        {
+            _obstacles.Clear();
+
+            var spline = _container.Spline;
+            float4x4 local_to_world = _container.transform.localToWorldMatrix;
+            float total_length = SplineUtility.CalculateLength(spline, local_to_world);
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                var child = transform.GetChild(i);
+                var obstacle = child.GetComponent<ObstacleController>();
+                if (obstacle == null) continue;
+
+                float3 pos = child.position;
+                SplineUtility.GetNearestPoint(spline, pos, out float3 nearest, out float t);
+                float distance = total_length * t;
+
+                SplineUtility.Evaluate(spline, t, out float3 splinePos, out float3 tangent, out float3 up);
+                Vector3 forward = new Vector3(tangent.x, tangent.y, tangent.z).normalized;
+                Vector3 right = Vector3.Cross(up, forward).normalized;
+                Vector3 real_up = Vector3.Cross(forward, right).normalized;
+
+                Vector3 localOffset = child.position - (Vector3)splinePos;
+                float radius = _tube_constructor.TubePreset.Radius;
+                float offsetX = Vector3.Dot(localOffset, right) / radius;
+                float offsetY = Vector3.Dot(localOffset, real_up) / radius;
+
+                Quaternion baseRotation = Quaternion.LookRotation(forward, real_up);
+                Quaternion delta = Quaternion.Inverse(baseRotation) * child.rotation;
+                float twist = delta.eulerAngles.z / 360f; // нормализуем в [0,1]
+
+                var preset = obstacle.Preset;
+
+                _obstacles.Add(new ObstacleCreatingData()
+                {
+                    Preset = preset,
+                    SpawnDistance = distance,
+                    Offset = new Vector2(offsetX, offsetY),
+                    Rotation = twist
+                });
+            }
+
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
+
         private ObstacleController CreateObstacle(ObstaclesPreset preset, Vector3 pos, Quaternion rot, float distance, float total_length, bool is_editor)
         {
             ObstacleController obstacle = null;
-            if (is_editor) obstacle = Instantiate(preset.Prefab, pos, rot, transform);
+            if (is_editor)
+            {
+                obstacle = Instantiate(preset.Prefab, pos, rot, transform);
+                obstacle.EditorInitialize(preset);
+            }
             else
             {
                 obstacle = NetworkUtils.NetworkInstantiate(preset.Prefab, pos, rot, transform);
-                obstacle.Initialize(_container, total_length, distance);
+                obstacle.Initialize(_container, preset, total_length, distance);
             }
             return obstacle;
         }
