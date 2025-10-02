@@ -474,7 +474,7 @@ MonoBehaviour:
   _trigger: {fileID: 8054255750858799871}
   _body: {fileID: 6408376129741466229}
   _rotate_direction: {x: 0, y: 0, z: 1}
-  _rotation_speed: 90
+  _rotation_speed: 75
 --- !u!114 &2349957216754783388
 MonoBehaviour:
   m_ObjectHideFlags: 0

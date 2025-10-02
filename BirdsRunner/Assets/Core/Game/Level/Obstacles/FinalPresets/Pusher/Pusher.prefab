@@ -657,7 +657,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4293979016860036620}
@@ -807,7 +807,7 @@ MonoBehaviour:
   _trigger: {fileID: 5894843524469115605}
   _body: {fileID: 434257211041209086}
   _rotate_direction: {x: 0, y: 0, z: -1}
-  _rotation_speed: 135
+  _rotation_speed: 15
 --- !u!114 &2246430928328766724
 MonoBehaviour:
   m_ObjectHideFlags: 0
