@@ -27,6 +27,8 @@ namespace Game.Level.Constructor
 
         public void GenerateServerLevel()
         {
+            _curve.Generate();
+            _tube.Generate();
             _obstacles.Generate(false);
             _plane.Generate();
         }

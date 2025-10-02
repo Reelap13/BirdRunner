@@ -46,6 +46,9 @@ namespace Game.GameMode
 
         private void ChangeGameMode(GameModeTypes type)
         {
+            Debug.Log("change");
+            Debug.Log(currentController);
+            Debug.Log(type);
             currentGameMode = type;
             currentController.DiactivateGameMode();
             switch (type)

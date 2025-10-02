@@ -177,6 +177,11 @@ namespace Game.PlayerSide.Character
             _rb.MoveRotation(newRotation);
 
             // Smoothly move towards the constrained position
+            if(Vector3.Distance(_targetPosition, plane.transform.position) > 3f)
+            {
+                Vector3 offset = (plane.transform.position - _targetPosition).normalized;
+                _targetPosition = plane.transform.position + offset * 3f;
+            }
             Vector3 newPosition = Vector3.Lerp(_rb.position, _targetPosition, constraintSmoothingFactor);
 
 

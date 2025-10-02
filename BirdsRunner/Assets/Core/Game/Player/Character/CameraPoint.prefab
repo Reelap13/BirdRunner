@@ -101,7 +101,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 0}
-  followSpeed: 15
+  followSpeed: 5
   distance: 2
   height: 1
   rotationDamping: 3

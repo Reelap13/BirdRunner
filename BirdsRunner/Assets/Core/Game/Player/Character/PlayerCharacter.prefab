@@ -2493,7 +2493,7 @@ MonoBehaviour:
   syncInterval: 0
   <Character>k__BackingField: {fileID: 643281548553802529}
   _forward_speed: 10
-  _side_speed: 7
+  _side_speed: 5
   _rb: {fileID: 3279447026722735806}
   model: {fileID: 6838691161164299287}
   rotationSpeed: 50
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   onlySyncOnChangeCorrectionMultiplier: 2
-  useFixedUpdate: 0
+  useFixedUpdate: 1
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01

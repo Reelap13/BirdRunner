@@ -14,6 +14,7 @@ namespace Game.GameMode
 
         public override void DiactivateGameMode()
         {
+            Debug.Log("diactivate");
             foreach (var player in controller.Game.Players.Players)
             {
                 player.CharacterCreator.Character.GetComponent<PlayerMagneticFieldController>().DiactivateField();

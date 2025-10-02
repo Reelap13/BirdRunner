@@ -17,6 +17,7 @@ namespace Game.GameMode {
             if (!isServer)
                 return;
             if (isTriggered) return;
+            if (!other.TryGetComponent(out TriggerCarrier t)) return;
             isTriggered = true;
 
             OnGameModeChanged.Invoke(gameMode);
