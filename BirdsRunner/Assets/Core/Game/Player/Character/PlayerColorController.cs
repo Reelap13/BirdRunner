@@ -32,6 +32,7 @@ namespace Game.PlayerSide.Character
             playerColor = newColor;
         }
 
+
         void OnPlayerColorChanged(Color oldColor, Color newColor)
         {
             foreach (var item in playerRenderers)

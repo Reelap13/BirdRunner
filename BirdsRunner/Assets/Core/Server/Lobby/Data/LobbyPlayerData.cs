@@ -10,6 +10,7 @@ namespace Server.Lobby
         public int PlayerId;
         public ConnectionType ConnectionType;
         public bool Readiness;
+        public Color Color;
 
         public LobbyPlayerData() { }
 
