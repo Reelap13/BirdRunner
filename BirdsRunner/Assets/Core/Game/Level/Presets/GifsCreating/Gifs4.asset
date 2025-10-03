@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa209c7102fd48a469bf0f356e7fd4ce, type: 3}
+  m_Name: Gifs4
+  m_EditorClassIdentifier: 
+  LevelId: 4
+  Prefab: {fileID: 1033241955332332956, guid: 370871ae0b9672942b5ea9bfe8abc309, type: 3}
