@@ -3,13 +3,15 @@ using Mirror;
 using UnityEngine.Splines;
 using Unity.Mathematics;
 using Game.Sound;
-
+using Game.Level.Constructor.Plane;
+using System.Collections.Generic;
 
 public class MovingPlaneController : NetworkBehaviour
 {
     [SerializeField] private float planeSpeed = 10f;
     [SerializeField] private float smoothingFactor = 0.1f; // Adjust in Inspector
     [SerializeField] private SoundPlayer music;
+    [SerializeField] private MusicLibrary musicLibrary;
 
     private SplineContainer _container;
     private float currentDistance;
@@ -63,14 +65,12 @@ public class MovingPlaneController : NetworkBehaviour
         _container = container;
     }
 
-    public void SetMusic(AudioClip clip)
-    {
-        music.SetMusic(clip);
-    }
-
     [ClientRpc]
-    public void PlayMusic()
+    public void SetMusic(int clipIndex)
     {
+        AudioClip clip = musicLibrary.GetAudioClip(clipIndex);
+        music.SetMusic(clip);
         music.PlaySound(true);
     }
+
 }

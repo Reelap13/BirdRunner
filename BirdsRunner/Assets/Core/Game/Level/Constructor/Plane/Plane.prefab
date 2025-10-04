@@ -105,6 +105,7 @@ MonoBehaviour:
   planeSpeed: 30
   smoothingFactor: 0.1
   music: {fileID: 2569345953273276074}
+  musicLibrary: {fileID: 11400000, guid: 2891b31f562468e46af18a8967a8d4bf, type: 2}
 --- !u!114 &2569345953273276074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2888597042607360740, guid: 3c994f10ac3869d40bf2795c38374261, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

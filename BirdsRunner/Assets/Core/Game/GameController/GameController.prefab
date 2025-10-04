@@ -297,10 +297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _presets:
-  - {fileID: 11400000, guid: 5319ce5496502d44aa23b1a016adf4ad, type: 2}
-  - {fileID: 11400000, guid: 17fb69489fc0e73438bb2dac1a9e6c6e, type: 2}
-  - {fileID: 11400000, guid: 7840c102df82cfb4f867d1def7bd9dc8, type: 2}
-  - {fileID: 11400000, guid: b7c47615005c2614f97888af3889408f, type: 2}
   - {fileID: 11400000, guid: ce9b400ef1369eb4b902fd724e2f02e0, type: 2}
   - {fileID: 11400000, guid: 9eff821e30016ca49aa41acb40a291c9, type: 2}
   - {fileID: 11400000, guid: 44e9f96a015095e43b19b457c24873f4, type: 2}

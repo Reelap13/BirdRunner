@@ -71,7 +71,10 @@ namespace Game.PlayerSide.Character
             plane = FindFirstObjectByType<MovingPlaneController>();
             _targetPosition = transform.position;
             _targetRotation = transform.rotation;
-            PlaySound();
+            if (isOwned)
+            {
+                PlaySound();
+            }
         }
 
         private void Update()
@@ -97,7 +100,6 @@ namespace Game.PlayerSide.Character
             }
         }
 
-        [TargetRpc]
         private void PlaySound()
         {
             sound.PlaySound(true);

@@ -12,7 +12,7 @@ namespace Game.Level.Constructor.Plane
     {
         [SerializeField] private SplineContainer _container;
         [SerializeField] private GameObject planePrefab;
-        [SerializeField] private AudioClip music;
+        [SerializeField] private int musicID;
 
 
         public void Generate()
@@ -32,8 +32,7 @@ namespace Game.Level.Constructor.Plane
             GameObject newPlane = NetworkUtils.NetworkInstantiate(planePrefab, pos, rot, null);
 
             var planeMusic = newPlane.GetComponent<MovingPlaneController>();
-            planeMusic.SetMusic(music);
-            planeMusic.PlayMusic();
+            planeMusic.SetMusic(musicID);
 
             newPlane.GetComponent<MovingPlaneController>().SetSpline(_container);
 
